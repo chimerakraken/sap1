@@ -1,0 +1,132 @@
+/* 
+* {
+    line-height: 1;
+    font-family: "Inter", sans-serif;
+  }
+  
+  body {
+    height: 100vh;
+    display: grid;
+    font-family: "Inter", sans-serif;
+    grid-template-columns: 280px 1fr;
+  }
+   */
+   
+  @font-face {
+    font-family: 'Montserrat-Light';
+    src: url('/fonts/Montserrat-Light.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Montserrat-Medium';
+    src: url('/fonts/Montserrat-Medium.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('/fonts/Montserrat-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Montserrat-Semibold';
+    src: url('/fonts/Montserrat-Semibold.ttf') format('truetype');
+  }
+
+ 
+
+  [x-cloak] {
+    display: none;
+  }
+
+  .override-translate{
+    transform: translate(-3px, 0) rotate(
+      45deg
+      ) !important;
+  }
+
+  .menu {
+    display: block;
+    width: 40px;
+    height: 36px;
+    position: relative;
+    cursor: pointer;
+  }
+  .menu div {
+    position: absolute;
+    height: 4px;
+    border-radius: 2px;
+    background: #4D7C0F;
+    transition: transform 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6), width 0.2s ease 0.2s;
+  }
+  .menu input {
+    display: none;
+  }
+  .menu input + div {
+    top: 50%;
+    left: 0;
+    margin: -2px 0 0 0;
+    width: 40px;
+    transform-origin: 50% 50%;
+  }
+  .menu input + div + div {
+    top: 2px;
+    left: 0;
+    width: 20px;
+    transform-origin: 0 50%;
+  }
+  .menu input + div + div + div {
+    bottom: 2px;
+    right: 0;
+    width: 28px;
+    transform-origin: 100% 50%;
+    transform: translate(-12px, 0);
+  }
+  .menu input:checked + div {
+    transform: rotate(-45deg);
+    transition: transform 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6) 0.1s;
+  }
+  .menu input:checked + div + div {
+    width: 19px;
+    transform: translate(6px, 0) rotate(45deg);
+    transition: transform 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6) 0.1s, width 0.2s ease;
+  }
+  .menu input:checked + div + div + div {
+    width: 19px;
+    transform: translate(-6px, 0) rotate(45deg);
+    transition: transform 0.45s cubic-bezier(0.9, -0.6, 0.3, 1.6) 0.1s, width 0.2s ease;
+  }
+  
+  html {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  * {
+    box-sizing: inherit;
+  }
+  *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  .line-pseudo div::before{
+    display: block;
+    content: attr(title);
+    font-weight: bold;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+
+
+  .active-tab
+  {
+    font-weight: 600;
+    --tw-border-opacity: 1;
+    border-color: rgba(101, 163, 13, var(--tw-border-opacity));
+    border-bottom-width: 2px;
+    --tw-text-opacity: 1;
+    color: rgba(75, 85, 99, var(--tw-text-opacity));
+  }
+
+/* usual $key => $item :class tailwindcss doesnt work with livewire pagination */
+  .striped-grid:nth-child(even) {background-color: #F8FAFC;}
