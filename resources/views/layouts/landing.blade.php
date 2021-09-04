@@ -312,12 +312,43 @@
     
   canvas.add(group_accumulator, group_adder_subtractor, group_b_register, group_output_regs, group_binary_display);
 
+  // Initialize W-BUS
+
+  var group_w_bus = new fabric.Group([ 
+      new fabric.Rect({
+      fill: 'white',
+      originX: 'center',
+      originY: 'center',
+      width: 150,
+      height: 565,
+      opacity: 0.1,
+      stroke: '#5B21B6',
+      strokeWidth: 2,
+    }), 
+    new fabric.Text('W-BUS', {
+      fontSize: 16,
+      fill: '#5B21B6',
+      top: -40,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: 'bold',
+      fontFamily: 'Calibri'
+    }) 
+      ], {
+      left: 305,
+      top: 60,
+    });
+
+  // Initialize W-BUS region
+
+  canvas.add(group_w_bus);
+
     var animateBtn = document.getElementById('animate');
     animateBtn.onclick = function() {
       animateBtn.disabled = true;
 
       //left bottom right
-      group_moving_process.animate('left', group_moving_process.left === 75 ? 300 : 75, {
+      group_moving_process.animate('left', group_moving_process.left === 75 ? 332 : 75, {
         duration: 1000,
         onChange: canvas.renderAll.bind(canvas),
         onComplete: function() {
