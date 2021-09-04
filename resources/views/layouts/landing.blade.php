@@ -19,9 +19,10 @@
       <div class="grid grid-cols-4 gap-x-4 mx-56">
         <div class="col-span-2 h-full bg-gray-500"></div>
         <div class="col-span-2 h-full">
-          <canvas id="c"  width="800" height="800"  style="border: 1px solid black;"></canvas>
+          <canvas id="c" width="750" height="750"></canvas>
         </div>
       </div>
+      <button id="animate" class="mt-5 font-sans text-base bg-indigo-900 px-4 py-2 text-indigo-50 rounded-sm">Start</button>
     </div>
   </main>
 </body>
@@ -32,18 +33,63 @@
     canvas.width  = $(window).width()*2; 
     canvas.height = 1000;
 
-  // create a rectangle object
     var rect = new fabric.Rect({
-      left: 75,
-      top: 75,
-      fill: 'red',
+      fill: '#5B21B6',
+      originX: 'center',
+      originY: 'center',
       width: 100,
       height: 20
     });
 
-    // "add" rectangle onto canvas
-    canvas.add(rect);
-      })
+    var text = new fabric.Text('1001010', {
+      fontSize: 16,
+      fill: 'white',
+      originX: 'center',
+      originY: 'center'
+    });
+
+    var group = new fabric.Group([ rect, text ], {
+      left: 75,
+      top: 75,
+    });
+
+    canvas.add(group);
+
+    var animateBtn = document.getElementById('animate');
+    animateBtn.onclick = function() {
+      animateBtn.disabled = true;
+
+      //left bottom right
+      group.animate('left', group.left === 75 ? 300 : 75, {
+        duration: 1000,
+        onChange: canvas.renderAll.bind(canvas),
+        onComplete: function() {
+
+          group.animate('top', '+=200', {
+            duration: 1000,
+            onChange: canvas.renderAll.bind(canvas),
+            onComplete: function() {
+
+              group.animate('left', 75, {
+                duration: 1000,
+                onChange: canvas.renderAll.bind(canvas),
+                onComplete: function() {
+                  animateBtn.disabled = false;
+                },
+                
+                easing: fabric.util.easeInOutBack
+              });
+            },
+            easing: fabric.util.easeInOutBack
+          });
+        },
+        easing: fabric.util.easeInOutBack
+      });
+
+     
+    };
+  });
+ 
 </script>
 
 </html>
