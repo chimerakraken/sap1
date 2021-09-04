@@ -30,7 +30,7 @@
 <script>
   $(document).ready(function(){
 
-    // Initialize
+    // Initialize left
     var canvas = new fabric.Canvas('c');
     canvas.width  = $(window).width()*2; 
     canvas.height = 1000;
@@ -63,7 +63,7 @@
       stroke: '#5B21B6',
       strokeWidth: 2,
     }), 
-    new fabric.Text('PROGRAM COUNTER', {
+    new fabric.Text('Program Counter', {
       fontSize: 16,
       fill: '#5B21B6',
       top: -40,
@@ -89,7 +89,7 @@
       stroke: '#5B21B6',
       strokeWidth: 2,
     }), 
-    new fabric.Text('INPUT AND MAR', {
+    new fabric.Text('Input and MAR', {
       fontSize: 16,
       fill: '#5B21B6',
       top: -40,
@@ -139,7 +139,7 @@
       stroke: '#5B21B6',
       strokeWidth: 2,
     }), 
-    new fabric.Text('INSTRUCTION REGISTER', {
+    new fabric.Text('Instruction Register', {
       fontSize: 16,
       fill: '#5B21B6',
       top: -40,
@@ -149,7 +149,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 45,
+      left: 55,
       top: 430,
     });
 
@@ -164,7 +164,7 @@
       stroke: '#5B21B6',
       strokeWidth: 2,
     }), 
-    new fabric.Text('CONTROLLER/SEQUENCER', {
+    new fabric.Text('Controller/Sequencer', {
       fontSize: 16,
       fill: '#5B21B6',
       top: -40,
@@ -174,13 +174,143 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 37,
+      left: 55,
       top: 550,
     });
 
-   // Initialize end region
+   // Initialize left end region
 
     canvas.add(group_moving_process, group_program_counter, group_input_mar, group_ram, group_instruction_regs, group_controller_sequence);
+
+  //  Initialize right 
+    var group_accumulator = new fabric.Group([ 
+      new fabric.Rect({
+      fill: 'white',
+      originX: 'center',
+      originY: 'center',
+      width: 140,
+      height: 50,
+      opacity: 0.1,
+      stroke: '#5B21B6',
+      strokeWidth: 2,
+    }), 
+    new fabric.Text('Accumulator', {
+      fontSize: 16,
+      fill: '#5B21B6',
+      top: -40,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: 'bold',
+      fontFamily: 'Calibri'
+    }) 
+      ], {
+      left: 555,
+      top: 38,
+    });
+    
+    var group_adder_subtractor = new fabric.Group([ 
+      new fabric.Rect({
+      fill: 'white',
+      originX: 'center',
+      originY: 'center',
+      width: 140,
+      height: 50,
+      opacity: 0.1,
+      stroke: '#5B21B6',
+      strokeWidth: 2,
+    }), 
+    new fabric.Text('Adder/Subtractor', {
+      fontSize: 16,
+      fill: '#5B21B6',
+      top: -40,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: 'bold',
+      fontFamily: 'Calibri'
+    }) 
+      ], {
+      left: 555,
+      top: 170,
+    });
+
+    var group_b_register = new fabric.Group([ 
+      new fabric.Rect({
+      fill: 'white',
+      originX: 'center',
+      originY: 'center',
+      width: 140,
+      height: 50,
+      opacity: 0.1,
+      stroke: '#5B21B6',
+      strokeWidth: 2,
+    }), 
+    new fabric.Text('B Register', {
+      fontSize: 16,
+      fill: '#5B21B6',
+      top: -40,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: 'bold',
+      fontFamily: 'Calibri'
+    }) 
+      ], {
+      left: 555,
+      top: 300,
+    });
+
+    var group_output_regs = new fabric.Group([ 
+      new fabric.Rect({
+      fill: 'white',
+      originX: 'center',
+      originY: 'center',
+      width: 140,
+      height: 50,
+      opacity: 0.1,
+      stroke: '#5B21B6',
+      strokeWidth: 2,
+    }), 
+    new fabric.Text('Output Register', {
+      fontSize: 16,
+      fill: '#5B21B6',
+      top: -40,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: 'bold',
+      fontFamily: 'Calibri'
+    }) 
+      ], {
+      left: 555,
+      top: 430,
+    });
+
+    var group_binary_display = new fabric.Group([ 
+      new fabric.Rect({
+      fill: 'white',
+      originX: 'center',
+      originY: 'center',
+      width: 140,
+      height: 50,
+      opacity: 0.1,
+      stroke: '#5B21B6',
+      strokeWidth: 2,
+    }), 
+    new fabric.Text('Binary Display', {
+      fontSize: 16,
+      fill: '#5B21B6',
+      top: -40,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: 'bold',
+      fontFamily: 'Calibri'
+    }) 
+      ], {
+      left: 555,
+      top: 550,
+    });
+
+  // Initialize right end region
+    
+  canvas.add(group_accumulator, group_adder_subtractor, group_b_register, group_output_regs, group_binary_display);
 
     var animateBtn = document.getElementById('animate');
     animateBtn.onclick = function() {
