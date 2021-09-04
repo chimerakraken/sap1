@@ -19,7 +19,7 @@
       <div class="grid grid-cols-4 gap-x-4 mx-56">
         <div class="col-span-2 h-full bg-gray-500"></div>
         <div class="col-span-2 h-full">
-          <canvas id="c" width="750" height="750"></canvas>
+          <canvas id="c" width="780" height="780"></canvas>
         </div>
       </div>
       <button id="animate" class="mt-5 font-sans text-base bg-indigo-900 px-4 py-2 text-indigo-50 rounded-sm">Start</button>
@@ -153,7 +153,7 @@
     }) 
       ], {
       left: 55,
-      top: 430,
+      top: 435,
       selectable: false
     });
 
@@ -179,7 +179,7 @@
     }) 
       ], {
       left: 55,
-      top: 550,
+      top: 570,
       selectable: false
     });
 
@@ -288,7 +288,7 @@
     }) 
       ], {
       left: 555,
-      top: 430,
+      top: 435,
       selectable: false
     });
 
@@ -314,7 +314,7 @@
     }) 
       ], {
       left: 555,
-      top: 550,
+      top: 570,
       selectable: false
     });
 
@@ -340,7 +340,7 @@
     }) 
       ], {
       left: 555,
-      top: 650,
+      top: 680,
       selectable: false
     });
 
@@ -356,7 +356,7 @@
       originX: 'center',
       originY: 'center',
       width: 150,
-      height: 565,
+      height: 584,
       opacity: 0.1,
       stroke: '#5B21B6',
       strokeWidth: 2,
