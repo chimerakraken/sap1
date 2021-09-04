@@ -34,7 +34,6 @@
     var canvas = new fabric.Canvas('c');
     canvas.width  = $(window).width()*2; 
     canvas.height = 1000;
-
     var group_moving_process = new fabric.Group([ new fabric.Rect({
       fill: '#5B21B6',
       originX: 'center',
@@ -50,6 +49,7 @@
     }) ], {
       left: 75,
       top: 75,
+      selectable: false
     });
 
     var group_program_counter = new fabric.Group([ 
@@ -75,6 +75,7 @@
       ], {
       left: 55,
       top: 38,
+      selectable: false
     });
 
 
@@ -101,6 +102,7 @@
       ], {
       left: 55,
       top: 170,
+      selectable: false
     });
 
     var group_ram = new fabric.Group([ 
@@ -126,6 +128,7 @@
       ], {
       left: 55,
       top: 300,
+      selectable: false
     });
 
     var group_instruction_regs = new fabric.Group([ 
@@ -151,6 +154,7 @@
       ], {
       left: 55,
       top: 430,
+      selectable: false
     });
 
     var group_controller_sequence = new fabric.Group([ 
@@ -176,6 +180,7 @@
       ], {
       left: 55,
       top: 550,
+      selectable: false
     });
 
    // Initialize left end region
@@ -206,6 +211,7 @@
       ], {
       left: 555,
       top: 38,
+      selectable: false
     });
     
     var group_adder_subtractor = new fabric.Group([ 
@@ -231,6 +237,7 @@
       ], {
       left: 555,
       top: 170,
+      selectable: false
     });
 
     var group_b_register = new fabric.Group([ 
@@ -256,6 +263,7 @@
       ], {
       left: 555,
       top: 300,
+      selectable: false
     });
 
     var group_output_regs = new fabric.Group([ 
@@ -281,6 +289,7 @@
       ], {
       left: 555,
       top: 430,
+      selectable: false
     });
 
     var group_binary_display = new fabric.Group([ 
@@ -306,11 +315,38 @@
       ], {
       left: 555,
       top: 550,
+      selectable: false
+    });
+
+    var group_state = new fabric.Group([ 
+      new fabric.Rect({
+      fill: 'white',
+      originX: 'center',
+      originY: 'center',
+      width: 140,
+      height: 50,
+      opacity: 0.1,
+      stroke: '#5B21B6',
+      strokeWidth: 2,
+    }), 
+    new fabric.Text('State', {
+      fontSize: 16,
+      fill: '#5B21B6',
+      top: -40,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: 'bold',
+      fontFamily: 'Calibri'
+    }) 
+      ], {
+      left: 555,
+      top: 650,
+      selectable: false
     });
 
   // Initialize right end region
     
-  canvas.add(group_accumulator, group_adder_subtractor, group_b_register, group_output_regs, group_binary_display);
+  canvas.add(group_accumulator, group_adder_subtractor, group_b_register, group_output_regs, group_binary_display, group_state);
 
   // Initialize W-BUS
 
@@ -337,6 +373,7 @@
       ], {
       left: 305,
       top: 60,
+      selectable: false
     });
 
   // Initialize W-BUS region
