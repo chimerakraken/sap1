@@ -29,48 +29,175 @@
 
 <script>
   $(document).ready(function(){
+
+    // Initialize
     var canvas = new fabric.Canvas('c');
     canvas.width  = $(window).width()*2; 
     canvas.height = 1000;
 
-    var rect = new fabric.Rect({
+    var group_moving_process = new fabric.Group([ new fabric.Rect({
       fill: '#5B21B6',
       originX: 'center',
       originY: 'center',
       width: 100,
       height: 20
-    });
-
-    var text = new fabric.Text('1001010', {
+    }), 
+    new fabric.Text('1001 1010', {
       fontSize: 16,
       fill: 'white',
       originX: 'center',
       originY: 'center'
-    });
-
-    var group = new fabric.Group([ rect, text ], {
+    }) ], {
       left: 75,
       top: 75,
     });
 
-    canvas.add(group);
+    var group_program_counter = new fabric.Group([ 
+      new fabric.Rect({
+      fill: 'white',
+      originX: 'center',
+      originY: 'center',
+      width: 140,
+      height: 50,
+      opacity: 0.1,
+      stroke: '#5B21B6',
+      strokeWidth: 2,
+    }), 
+    new fabric.Text('PROGRAM COUNTER', {
+      fontSize: 16,
+      fill: '#5B21B6',
+      top: -40,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: 'bold',
+      fontFamily: 'Calibri'
+    }) 
+      ], {
+      left: 55,
+      top: 38,
+    });
+
+
+    var group_input_mar = new fabric.Group([ 
+      new fabric.Rect({
+      fill: 'white',
+      originX: 'center',
+      originY: 'center',
+      width: 140,
+      height: 50,
+      opacity: 0.1,
+      stroke: '#5B21B6',
+      strokeWidth: 2,
+    }), 
+    new fabric.Text('INPUT AND MAR', {
+      fontSize: 16,
+      fill: '#5B21B6',
+      top: -40,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: 'bold',
+      fontFamily: 'Calibri'
+    }) 
+      ], {
+      left: 55,
+      top: 170,
+    });
+
+    var group_ram = new fabric.Group([ 
+      new fabric.Rect({
+      fill: 'white',
+      originX: 'center',
+      originY: 'center',
+      width: 140,
+      height: 50,
+      opacity: 0.1,
+      stroke: '#5B21B6',
+      strokeWidth: 2,
+    }), 
+    new fabric.Text('16x8 RAM', {
+      fontSize: 16,
+      fill: '#5B21B6',
+      top: -40,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: 'bold',
+      fontFamily: 'Calibri'
+    }) 
+      ], {
+      left: 55,
+      top: 300,
+    });
+
+    var group_instruction_regs = new fabric.Group([ 
+      new fabric.Rect({
+      fill: 'white',
+      originX: 'center',
+      originY: 'center',
+      width: 140,
+      height: 50,
+      opacity: 0.1,
+      stroke: '#5B21B6',
+      strokeWidth: 2,
+    }), 
+    new fabric.Text('INSTRUCTION REGISTER', {
+      fontSize: 16,
+      fill: '#5B21B6',
+      top: -40,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: 'bold',
+      fontFamily: 'Calibri'
+    }) 
+      ], {
+      left: 45,
+      top: 430,
+    });
+
+    var group_controller_sequence = new fabric.Group([ 
+      new fabric.Rect({
+      fill: 'white',
+      originX: 'center',
+      originY: 'center',
+      width: 140,
+      height: 50,
+      opacity: 0.1,
+      stroke: '#5B21B6',
+      strokeWidth: 2,
+    }), 
+    new fabric.Text('CONTROLLER/SEQUENCER', {
+      fontSize: 16,
+      fill: '#5B21B6',
+      top: -40,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: 'bold',
+      fontFamily: 'Calibri'
+    }) 
+      ], {
+      left: 37,
+      top: 550,
+    });
+
+   // Initialize end region
+
+    canvas.add(group_moving_process, group_program_counter, group_input_mar, group_ram, group_instruction_regs, group_controller_sequence);
 
     var animateBtn = document.getElementById('animate');
     animateBtn.onclick = function() {
       animateBtn.disabled = true;
 
       //left bottom right
-      group.animate('left', group.left === 75 ? 300 : 75, {
+      group_moving_process.animate('left', group_moving_process.left === 75 ? 300 : 75, {
         duration: 1000,
         onChange: canvas.renderAll.bind(canvas),
         onComplete: function() {
 
-          group.animate('top', '+=200', {
+          group_moving_process.animate('top', '+=133', {
             duration: 1000,
             onChange: canvas.renderAll.bind(canvas),
             onComplete: function() {
 
-              group.animate('left', 75, {
+              group_moving_process.animate('left', 75, {
                 duration: 1000,
                 onChange: canvas.renderAll.bind(canvas),
                 onComplete: function() {
