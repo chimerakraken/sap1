@@ -16,10 +16,10 @@
 <body class="antialiased font-sans">
   <main>
     <div class="w-full" align="center" style="margin-top: 10vh;">
-      <div class="grid grid-cols-4 gap-x-4 mx-56">
+      <div class="grid grid-cols-6 gap-x-6 mx-48">
         <div class="col-span-2 h-full bg-gray-500"></div>
-        <div class="col-span-2 h-full">
-          <canvas id="c" width="780" height="780"></canvas>
+        <div class="col-span-4 h-full">
+          <canvas id="c" width="1000" height="780"></canvas>
         </div>
       </div>
       <button id="animate" class="mt-5 font-sans text-base bg-indigo-900 px-4 py-2 text-indigo-50 rounded-sm">Start</button>
@@ -31,14 +31,14 @@
   $(document).ready(function(){
 
     // Initialize left
+    var left_margin = 130;
     var canvas = new fabric.Canvas('c');
     canvas.width  = $(window).width()*2; 
     canvas.height = 1000;
 
     // Arrows Region
-    
-    init_arrows();
 
+    init_arrows();
 
     function init_arrows(){
     // left arrows
@@ -65,7 +65,7 @@
       left: 42
     })
      ], {
-      left: 210,
+      left: 210 + left_margin,
       top: 65,
       selectable: false
     });
@@ -94,7 +94,7 @@
       left: 42
     })
      ], {
-      left: 210,
+      left: 210 + left_margin,
       top: 200,
       flipX: true,
       selectable: false
@@ -123,7 +123,7 @@
       left: 42
     })
      ], {
-      left: 210,
+      left: 210 + left_margin,
       top: 330,
       selectable: false
     });
@@ -153,7 +153,7 @@
       left: 42
     })
      ], {
-      left: 210,
+      left: 210 + left_margin,
       top: 450,
       flipX: true,
       selectable: false
@@ -183,7 +183,7 @@
       left: 42
     })
      ], {
-      left: 210,
+      left: 210 + left_margin,
       top: 485,
       selectable: false
     });
@@ -220,7 +220,7 @@
       left: -41
     })
      ], {
-      left: 470,
+      left: 470 + left_margin,
       top: 65,
       selectable: false
     });
@@ -250,7 +250,7 @@
       left: 42
     })
      ], {
-      left: 470,
+      left: 470 + left_margin,
       top: 200,
       flipX: true,
       selectable: false
@@ -279,7 +279,7 @@
       left: 42
     })
      ], {
-      left: 470,
+      left: 470 + left_margin,
       top: 330,
       selectable: false
     });
@@ -307,7 +307,7 @@
       left: 42
     })
      ], {
-      left: 470,
+      left: 470 + left_margin,
       top: 460,
       selectable: false
     });
@@ -340,7 +340,7 @@
       left: 23
     })
      ], {
-      left: 145,
+      left: 145 + left_margin,
       top: 255,
       angle: 90,
       selectable: false
@@ -370,7 +370,7 @@
       left: 23
     })
      ], {
-      left: 145,
+      left: 145 + left_margin,
       top: 520,
       angle: 90,
       selectable: false
@@ -400,7 +400,7 @@
       left: 23
     })
      ], {
-      left: 655,
+      left: 655 + left_margin,
       top: 520,
       angle: 90,
       selectable: false
@@ -431,7 +431,7 @@
       left: 23
     })
      ], {
-      left: 655,
+      left: 655 + left_margin,
       top: 255,
       angle: 90,
       flipX: true,
@@ -462,7 +462,7 @@
       left: 23
     })
      ], {
-      left: 655,
+      left: 655 + left_margin,
       top: 122,
       angle: 90,
       selectable: false
@@ -485,7 +485,7 @@
       originX: 'center',
       originY: 'center'
     }) ], {
-      left: 75,
+      left: 75 + left_margin,
       top: 75,
       selectable: false
     });
@@ -511,7 +511,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 55,
+      left: 55 + left_margin,
       top: 38,
       selectable: false
     });
@@ -538,7 +538,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 55,
+      left: 55 + left_margin,
       top: 170,
       selectable: false
     });
@@ -564,7 +564,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 55,
+      left: 55 + left_margin,
       top: 300,
       selectable: false
     });
@@ -590,7 +590,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 55,
+      left: 55 + left_margin,
       top: 435,
       selectable: false
     });
@@ -616,7 +616,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 55,
+      left: 55 + left_margin,
       top: 570,
       selectable: false
     });
@@ -647,7 +647,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 565,
+      left: 565 + left_margin,
       top: 38,
       selectable: false
     });
@@ -673,7 +673,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 565,
+      left: 565 + left_margin,
       top: 170,
       selectable: false
     });
@@ -699,7 +699,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 565,
+      left: 565 + left_margin,
       top: 300,
       selectable: false
     });
@@ -725,7 +725,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 565,
+      left: 565 + left_margin,
       top: 435,
       selectable: false
     });
@@ -751,7 +751,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 565,
+      left: 565 + left_margin,
       top: 570,
       selectable: false
     });
@@ -777,7 +777,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 565,
+      left: 565 + left_margin,
       top: 680,
       selectable: false
     });
@@ -809,13 +809,163 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 305,
+      left: 305 + left_margin,
       top: 60,
       selectable: false
     });
 
   // Initialize W-BUS region
 
+  // Initialize Left Pins
+
+    var pin_program_counter_clk = new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 45,
+      height: .5,
+      left: 15
+    }), 
+    new fabric.Text('CLK', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: -18
+    })
+     ], {
+      left: 120,
+      top: 75,
+      selectable: false
+    });
+
+    var pin_program_counter_clr = new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 45,
+      height: .5,
+      left: 15
+    }), 
+    new fabric.Text('CLR', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: -18
+    })
+     ], {
+      left: 120,
+      top: 88,
+      selectable: false
+    });
+
+
+    var pin_program_counter_ep = new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 51,
+      height: .5,
+      left: 15
+    }), 
+    new fabric.Text('Ep', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: -18
+    })
+     ], {
+      left: 120,
+      top: 100,
+      selectable: false
+    });
+
+
+    var pin_program_counter_cp = new fabric.Group([ new fabric.Rect({
+      fill: '#5B21B6',
+      originX: 'center',
+      originY: 'center',
+      width: 49,
+      height: .5,
+      left: 15.5
+    }), 
+    new fabric.Text('Cp', {
+      fontSize: 12,
+      fill: '#5B21B6',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '800',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: -18
+    })
+     ], {
+      left: 120,
+      top: 60,
+      selectable: false
+    });
+
+    var pin_input_mar_Lm = new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 48,
+      height: .5,
+      left: 15
+    }), 
+    new fabric.Text('Lm', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: -18
+    })
+     ], {
+      left: 120,
+      top: 200,
+      selectable: false
+    });
+
+    var pin_input_mar_CLK = new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 48,
+      height: .5,
+      left: 15
+    }), 
+    new fabric.Text('CLK', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: -18
+    })
+     ], {
+      left: 120,
+      top: 220,
+      selectable: false
+    });
+
+  canvas.add(pin_input_mar_CLK, pin_input_mar_Lm, pin_program_counter_ep, pin_program_counter_clr, pin_program_counter_clk, pin_program_counter_cp);  
+  // Initialize Left Pins end region
   canvas.add(group_w_bus);
 
     var animateBtn = document.getElementById('animate');
@@ -823,7 +973,7 @@
       animateBtn.disabled = true;
 
       //left bottom right
-      group_moving_process.animate('left', group_moving_process.left === 75 ? 332 : 75, {
+      group_moving_process.animate('left', group_moving_process.left === 75 + left_margin ? 332 + left_margin : 75 + left_margin, {
         duration: 1000,
         onChange: canvas.renderAll.bind(canvas),
         onComplete: function() {
@@ -833,7 +983,7 @@
             onChange: canvas.renderAll.bind(canvas),
             onComplete: function() {
 
-              group_moving_process.animate('left', 75, {
+              group_moving_process.animate('left', 75 + left_margin, {
                 duration: 1000,
                 onChange: canvas.renderAll.bind(canvas),
                 onComplete: function() {
