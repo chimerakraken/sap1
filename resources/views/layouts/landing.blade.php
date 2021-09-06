@@ -492,12 +492,11 @@
 
     var group_program_counter = new fabric.Group([ 
       new fabric.Rect({
-      fill: 'white',
+      fill: 'transparent',
       originX: 'center',
       originY: 'center',
       width: 140,
       height: 50,
-      opacity: 0.1,
       stroke: '#5B21B6',
       strokeWidth: 2,
     }), 
@@ -519,12 +518,11 @@
 
     var group_input_mar = new fabric.Group([ 
       new fabric.Rect({
-      fill: 'white',
+      fill: 'transparent',
       originX: 'center',
       originY: 'center',
       width: 140,
       height: 50,
-      opacity: 0.1,
       stroke: '#5B21B6',
       strokeWidth: 2,
     }), 
@@ -545,12 +543,11 @@
 
     var group_ram = new fabric.Group([ 
       new fabric.Rect({
-      fill: 'white',
+      fill: 'transparent',
       originX: 'center',
       originY: 'center',
       width: 140,
       height: 50,
-      opacity: 0.1,
       stroke: '#5B21B6',
       strokeWidth: 2,
     }), 
@@ -571,12 +568,11 @@
 
     var group_instruction_regs = new fabric.Group([ 
       new fabric.Rect({
-      fill: 'white',
+      fill: 'transparent',
       originX: 'center',
       originY: 'center',
       width: 140,
       height: 50,
-      opacity: 0.1,
       stroke: '#5B21B6',
       strokeWidth: 2,
     }), 
@@ -597,12 +593,11 @@
 
     var group_controller_sequence = new fabric.Group([ 
       new fabric.Rect({
-      fill: 'white',
+      fill: 'transparent',
       originX: 'center',
       originY: 'center',
       width: 140,
       height: 50,
-      opacity: 0.1,
       stroke: '#5B21B6',
       strokeWidth: 2,
     }), 
@@ -628,12 +623,11 @@
   //  Initialize right 
     var group_accumulator = new fabric.Group([ 
       new fabric.Rect({
-      fill: 'white',
+      fill: 'transparent',
       originX: 'center',
       originY: 'center',
       width: 140,
       height: 50,
-      opacity: 0.1,
       stroke: '#5B21B6',
       strokeWidth: 2,
     }), 
@@ -654,12 +648,11 @@
     
     var group_adder_subtractor = new fabric.Group([ 
       new fabric.Rect({
-      fill: 'white',
+      fill: 'transparent',
       originX: 'center',
       originY: 'center',
       width: 140,
       height: 50,
-      opacity: 0.1,
       stroke: '#5B21B6',
       strokeWidth: 2,
     }), 
@@ -680,12 +673,11 @@
 
     var group_b_register = new fabric.Group([ 
       new fabric.Rect({
-      fill: 'white',
+      fill: 'transparent',
       originX: 'center',
       originY: 'center',
       width: 140,
       height: 50,
-      opacity: 0.1,
       stroke: '#5B21B6',
       strokeWidth: 2,
     }), 
@@ -706,12 +698,11 @@
 
     var group_output_regs = new fabric.Group([ 
       new fabric.Rect({
-      fill: 'white',
+      fill: 'transparent',
       originX: 'center',
       originY: 'center',
       width: 140,
       height: 50,
-      opacity: 0.1,
       stroke: '#5B21B6',
       strokeWidth: 2,
     }), 
@@ -732,12 +723,11 @@
 
     var group_binary_display = new fabric.Group([ 
       new fabric.Rect({
-      fill: 'white',
+      fill: 'transparent',
       originX: 'center',
       originY: 'center',
       width: 140,
       height: 50,
-      opacity: 0.1,
       stroke: '#5B21B6',
       strokeWidth: 2,
     }), 
@@ -758,12 +748,11 @@
 
     var group_state = new fabric.Group([ 
       new fabric.Rect({
-      fill: 'white',
+      fill: 'transparent',
       originX: 'center',
       originY: 'center',
       width: 140,
       height: 50,
-      opacity: 0.1,
       stroke: '#5B21B6',
       strokeWidth: 2,
     }), 
@@ -790,12 +779,11 @@
 
   var group_w_bus = new fabric.Group([ 
       new fabric.Rect({
-      fill: 'white',
+      fill: 'transparent',
       originX: 'center',
       originY: 'center',
       width: 150,
       height: 584,
-      opacity: 0.1,
       stroke: '#5B21B6',
       strokeWidth: 2,
     }), 
@@ -891,7 +879,6 @@
       selectable: false
     });
 
-
     var pin_program_counter_cp = new fabric.Group([ new fabric.Rect({
       fill: '#5B21B6',
       originX: 'center',
@@ -944,7 +931,7 @@
       fill: '#A78BFA',
       originX: 'center',
       originY: 'center',
-      width: 48,
+      width: 46,
       height: .5,
       left: 15
     }), 
@@ -964,7 +951,31 @@
       selectable: false
     });
 
-  canvas.add(pin_input_mar_CLK, pin_input_mar_Lm, pin_program_counter_ep, pin_program_counter_clr, pin_program_counter_clk, pin_program_counter_cp);  
+    var pin_RAM= new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 50,
+      height: .5,
+      left: 15
+    }), 
+    new fabric.Text('Er', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: -18
+    })
+     ], {
+      left: 121,
+      top: 350,
+      selectable: false
+    });
+
+  canvas.add(pin_RAM, pin_input_mar_CLK, pin_input_mar_Lm, pin_program_counter_ep, pin_program_counter_clr, pin_program_counter_clk, pin_program_counter_cp);  
   // Initialize Left Pins end region
   canvas.add(group_w_bus);
 
@@ -977,6 +988,16 @@
         duration: 1000,
         onChange: canvas.renderAll.bind(canvas),
         onComplete: function() {
+          
+          pin_program_counter_cp.item(1).set({
+            fill: '#A78BFA',
+            fontWeight: '400'
+          });
+
+          pin_input_mar_CLK.item(1).set({
+            fill: '#5B21B6',
+            fontWeight: '800'
+          });
 
           group_moving_process.animate('top', '+=133', {
             duration: 1000,
