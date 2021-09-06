@@ -50,7 +50,7 @@
       height: 1
     }), 
     new fabric.Text('4', {
-      fontSize: 16,
+      fontSize: 12,
       fill: '#8B5CF6',
       originX: 'center',
       originY: 'center',
@@ -78,7 +78,7 @@
       height: 1
     }), 
     new fabric.Text('4', {
-      fontSize: 16,
+      fontSize: 12,
       fill: '#8B5CF6',
       originX: 'center',
       originY: 'center',
@@ -108,7 +108,7 @@
       height: 1
     }), 
     new fabric.Text('8', {
-      fontSize: 16,
+      fontSize: 12,
       fill: '#8B5CF6',
       originX: 'center',
       originY: 'center',
@@ -137,7 +137,7 @@
       height: 1
     }), 
     new fabric.Text('8', {
-      fontSize: 16,
+      fontSize: 12,
       fill: '#8B5CF6',
       originX: 'center',
       originY: 'center',
@@ -168,7 +168,7 @@
       height: 1
     }), 
     new fabric.Text('4', {
-      fontSize: 16,
+      fontSize: 12,
       fill: '#8B5CF6',
       originX: 'center',
       originY: 'center',
@@ -197,7 +197,7 @@
       height: 1
     }), 
     new fabric.Text('8', {
-      fontSize: 16,
+      fontSize: 12,
       fill: '#8B5CF6',
       originX: 'center',
       originY: 'center',
@@ -234,7 +234,7 @@
       height: 1
     }), 
     new fabric.Text('4', {
-      fontSize: 16,
+      fontSize: 12,
       fill: '#8B5CF6',
       originX: 'center',
       originY: 'center',
@@ -264,7 +264,7 @@
       height: 1
     }), 
     new fabric.Text('8', {
-      fontSize: 16,
+      fontSize: 12,
       fill: '#8B5CF6',
       originX: 'center',
       originY: 'center',
@@ -292,7 +292,7 @@
       height: 1
     }), 
     new fabric.Text('8', {
-      fontSize: 16,
+      fontSize: 12,
       fill: '#8B5CF6',
       originX: 'center',
       originY: 'center',
@@ -324,7 +324,7 @@
       height: 1
     }), 
     new fabric.Text('4', {
-      fontSize: 16,
+      fontSize: 12,
       fill: '#8B5CF6',
       originX: 'center',
       originY: 'center',
@@ -354,7 +354,7 @@
       height: 1
     }), 
     new fabric.Text('4', {
-      fontSize: 16,
+      fontSize: 12,
       fill: '#8B5CF6',
       originX: 'center',
       originY: 'center',
@@ -384,7 +384,7 @@
       height: 1
     }), 
     new fabric.Text('8', {
-      fontSize: 16,
+      fontSize: 12,
       fill: '#8B5CF6',
       originX: 'center',
       originY: 'center',
@@ -414,7 +414,7 @@
       height: 1
     }), 
     new fabric.Text('8', {
-      fontSize: 16,
+      fontSize: 12,
       fill: '#8B5CF6',
       originX: 'center',
       originY: 'center',
@@ -446,7 +446,7 @@
       height: 1
     }), 
     new fabric.Text('8', {
-      fontSize: 16,
+      fontSize: 12,
       fill: '#8B5CF6',
       originX: 'center',
       originY: 'center',
