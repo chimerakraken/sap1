@@ -811,7 +811,7 @@
       originX: 'center',
       originY: 'center',
       width: 45,
-      height: .5,
+      height: 1,
       left: 15
     }), 
     new fabric.Text('CLK', {
@@ -835,7 +835,7 @@
       originX: 'center',
       originY: 'center',
       width: 45,
-      height: .5,
+      height: 1,
       left: 15
     }), 
     new fabric.Text('CLR', {
@@ -860,7 +860,7 @@
       originX: 'center',
       originY: 'center',
       width: 51,
-      height: .5,
+      height: 1,
       left: 15
     }), 
     new fabric.Text('Ep', {
@@ -884,7 +884,7 @@
       originX: 'center',
       originY: 'center',
       width: 49,
-      height: .5,
+      height: 1,
       left: 15.5
     }), 
     new fabric.Text('Cp', {
@@ -908,7 +908,7 @@
       originX: 'center',
       originY: 'center',
       width: 48,
-      height: .5,
+      height: 1,
       left: 15
     }), 
     new fabric.Text('Lm', {
@@ -932,7 +932,7 @@
       originX: 'center',
       originY: 'center',
       width: 46,
-      height: .5,
+      height: 1,
       left: 15
     }), 
     new fabric.Text('CLK', {
@@ -951,12 +951,12 @@
       selectable: false
     });
 
-    var pin_RAM= new fabric.Group([ new fabric.Rect({
+    var pin_RAM_Er= new fabric.Group([ new fabric.Rect({
       fill: '#A78BFA',
       originX: 'center',
       originY: 'center',
       width: 50,
-      height: .5,
+      height: 1,
       left: 15
     }), 
     new fabric.Text('Er', {
@@ -970,13 +970,414 @@
       left: -18
     })
      ], {
-      left: 121,
+      left: 120,
       top: 350,
       selectable: false
     });
 
-  canvas.add(pin_RAM, pin_input_mar_CLK, pin_input_mar_Lm, pin_program_counter_ep, pin_program_counter_clr, pin_program_counter_clk, pin_program_counter_cp);  
+    var pin_instruction_regs_Li= new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 50,
+      height: 1,
+      left: 15
+    }), 
+    new fabric.Text('Li', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: -18
+    })
+     ], {
+      left: 123,
+      top: 460,
+      selectable: false
+    });
+
+    
+    var pin_instruction_regs_CLK= new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 40,
+      height: 1,
+      left: 15
+    }), 
+    new fabric.Text('CLK', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: -18
+    })
+     ], {
+      left: 123,
+      top: 475,
+      selectable: false
+    });
+
+    var pin_instruction_regs_CLR= new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 40,
+      height: 1,
+      left: 15
+    }), 
+    new fabric.Text('CLR', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: -18
+    })
+     ], {
+      left: 123,
+      top: 485,
+      selectable: false
+    });
+
+    var pin_instruction_regs_Ei= new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 49,
+      height: 1,
+      left: 15
+    }), 
+    new fabric.Text('Ei', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: -18
+    })
+     ], {
+      left: 123,
+      top: 495,
+      selectable: false
+    });
+    
+
+  canvas.add(pin_instruction_regs_Ei, pin_instruction_regs_CLR, pin_instruction_regs_CLK, pin_instruction_regs_Li, pin_RAM_Er, pin_input_mar_CLK, pin_input_mar_Lm, pin_program_counter_ep, pin_program_counter_clr, pin_program_counter_clk, pin_program_counter_cp);  
   // Initialize Left Pins end region
+
+
+  // Initialzie right pins 
+
+  var pin_accumulator_la = new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 44,
+      height: 1,
+      left: 16
+    }), 
+    new fabric.Text('La', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: 46
+    })
+     ], {
+      left: 836.5,
+      top: 67,
+      selectable: false
+    });
+
+    var pin_accumulator_clk = new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 44,
+      height: 1,
+      left: 16
+    }), 
+    new fabric.Text('CLK', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: 49
+    })
+     ], {
+      left: 836.5,
+      top: 80,
+      selectable: false
+    });
+
+
+    var pin_accumulator_ea = new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 44,
+      height: 1,
+      left: 19
+    }), 
+    new fabric.Text('Ea', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: 49
+    })
+     ], {
+      left: 836.5,
+      top: 95,
+      selectable: false
+    });
+
+
+    var pin_adder_substractor_su = new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 44,
+      height: 1,
+      left: 19
+    }), 
+    new fabric.Text('Su', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: 49
+    })
+     ], {
+      left: 836.5,
+      top: 200,
+      selectable: false
+    });
+
+
+    
+    var pin_adder_substractor_eu = new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 44,
+      height: 1,
+      left: 19
+    }), 
+    new fabric.Text('Eu', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: 49
+    })
+     ], {
+      left: 836.5,
+      top: 220,
+      selectable: false
+    });
+
+
+    var pin_b_register_lb = new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 44,
+      height: 1,
+      left: 19
+    }), 
+    new fabric.Text('Lb', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: 49
+    })
+     ], {
+      left: 836.5,
+      top: 330,
+      selectable: false
+    });
+
+    var pin_b_register_CLK = new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 44,
+      height: 1,
+      left: 16
+    }), 
+    new fabric.Text('CLK', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: 49
+    })
+     ], {
+      left: 836.5,
+      top: 350,
+      selectable: false
+    });
+
+
+    var pin_output_regs_Lo = new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 44,
+      height: 1,
+      left: 16
+    }), 
+    new fabric.Text('Lo', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: 49
+    })
+     ], {
+      left: 836.5,
+      top: 470,
+      selectable: false
+    });
+
+    var pin_output_regs_CLK = new fabric.Group([ new fabric.Rect({
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      width: 44,
+      height: 1,
+      left: 16
+    }), 
+    new fabric.Text('CLK', {
+      fontSize: 12,
+      fill: '#A78BFA',
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 0,
+      left: 49
+    })
+     ], {
+      left: 836.5,
+      top: 490,
+      selectable: false
+    });
+
+
+    canvas.add(pin_output_regs_CLK, pin_output_regs_Lo, pin_b_register_CLK, pin_b_register_lb, pin_adder_substractor_eu, pin_adder_substractor_su, pin_accumulator_ea, pin_accumulator_clk, pin_accumulator_la);
+
+    // var pin_program_counter_clr = new fabric.Group([ new fabric.Rect({
+    //   fill: '#A78BFA',
+    //   originX: 'center',
+    //   originY: 'center',
+    //   width: 45,
+    //   height: 1,
+    //   left: 15
+    // }), 
+    // new fabric.Text('CLR', {
+    //   fontSize: 12,
+    //   fill: '#A78BFA',
+    //   originX: 'center',
+    //   originY: 'center',
+    //   fontWeight: '400',
+    //   fontFamily: 'Calibri',
+    //   top: 0,
+    //   left: -18
+    // })
+    //  ], {
+    //   left: 120,
+    //   top: 88,
+    //   selectable: false
+    // });
+
+
+    // var pin_program_counter_ep = new fabric.Group([ new fabric.Rect({
+    //   fill: '#A78BFA',
+    //   originX: 'center',
+    //   originY: 'center',
+    //   width: 51,
+    //   height: 1,
+    //   left: 15
+    // }), 
+    // new fabric.Text('Ep', {
+    //   fontSize: 12,
+    //   fill: '#A78BFA',
+    //   originX: 'center',
+    //   originY: 'center',
+    //   fontWeight: '400',
+    //   fontFamily: 'Calibri',
+    //   top: 0,
+    //   left: -18
+    // })
+    //  ], {
+    //   left: 120,
+    //   top: 100,
+    //   selectable: false
+    // });
+
+    // var pin_program_counter_cp = new fabric.Group([ new fabric.Rect({
+    //   fill: '#5B21B6',
+    //   originX: 'center',
+    //   originY: 'center',
+    //   width: 49,
+    //   height: 1,
+    //   left: 15.5
+    // }), 
+    // new fabric.Text('Cp', {
+    //   fontSize: 12,
+    //   fill: '#5B21B6',
+    //   originX: 'center',
+    //   originY: 'center',
+    //   fontWeight: '800',
+    //   fontFamily: 'Calibri',
+    //   top: 0,
+    //   left: -18
+    // })
+    //  ], {
+    //   left: 120,
+    //   top: 60,
+    //   selectable: false
+    // });
+
+  // initialize right pins end region
   canvas.add(group_w_bus);
 
     var animateBtn = document.getElementById('animate');
