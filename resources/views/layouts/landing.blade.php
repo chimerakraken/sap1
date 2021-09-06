@@ -34,6 +34,444 @@
     var canvas = new fabric.Canvas('c');
     canvas.width  = $(window).width()*2; 
     canvas.height = 1000;
+
+    // Arrows Region
+    
+    init_arrows();
+
+
+    function init_arrows(){
+    // left arrows
+    var group_arrow_program_counter_w_bus = new fabric.Group([ new fabric.Rect({
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      width: 80,
+      height: 1
+    }), 
+    new fabric.Text('4', {
+      fontSize: 16,
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      top: -15
+    }),
+    new fabric.Triangle({
+      fill: '#8B5CF6',
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 42
+    })
+     ], {
+      left: 210,
+      top: 65,
+      selectable: false
+    });
+
+    var group_arrow_w_bus_input_mar = new fabric.Group([ new fabric.Rect({
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      width: 80,
+      height: 1
+    }), 
+    new fabric.Text('4', {
+      fontSize: 16,
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      flipX: true,
+      top: -15
+    }),
+    new fabric.Triangle({
+      fill: '#8B5CF6',
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 42
+    })
+     ], {
+      left: 210,
+      top: 200,
+      flipX: true,
+      selectable: false
+    });
+
+    var group_arrow_RAM_w_bus = new fabric.Group([ new fabric.Rect({
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      width: 80,
+      height: 1
+    }), 
+    new fabric.Text('8', {
+      fontSize: 16,
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      top: -15
+    }),
+    new fabric.Triangle({
+      fill: '#8B5CF6',
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 42
+    })
+     ], {
+      left: 210,
+      top: 330,
+      selectable: false
+    });
+
+
+    var group_arrow_w_bus_instruction_regs = new fabric.Group([ new fabric.Rect({
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      width: 80,
+      height: 1
+    }), 
+    new fabric.Text('8', {
+      fontSize: 16,
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      flipX: true,
+      top: -15
+    }),
+    new fabric.Triangle({
+      fill: '#8B5CF6',
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 42
+    })
+     ], {
+      left: 210,
+      top: 450,
+      flipX: true,
+      selectable: false
+    });
+
+    
+    var group_arrow_instruction_regs_w_bus = new fabric.Group([ new fabric.Rect({
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      width: 80,
+      height: 1
+    }), 
+    new fabric.Text('4', {
+      fontSize: 16,
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      top: 15
+    }),
+    new fabric.Triangle({
+      fill: '#8B5CF6',
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 42
+    })
+     ], {
+      left: 210,
+      top: 485,
+      selectable: false
+    });
+
+    // right arrows group_arrow_w_bus_accumulator
+    var group_arrow_w_bus_accumulator = new fabric.Group([ new fabric.Rect({
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      width: 80,
+      height: 1
+    }), 
+    new fabric.Text('8', {
+      fontSize: 16,
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      top: -15
+    }),
+    new fabric.Triangle({
+      fill: '#8B5CF6',
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 42
+    })
+    , new fabric.Triangle({
+      fill: '#8B5CF6',
+      top: 4,
+      width: 7,
+      height: 5,
+      angle: 270,
+      left: -41
+    })
+     ], {
+      left: 470,
+      top: 65,
+      selectable: false
+    });
+
+    
+    var group_arrow_adder_substractor_w_bus = new fabric.Group([ new fabric.Rect({
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      width: 80,
+      height: 1
+    }), 
+    new fabric.Text('4', {
+      fontSize: 16,
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      flipX: true,
+      top: -15
+    }),
+    new fabric.Triangle({
+      fill: '#8B5CF6',
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 42
+    })
+     ], {
+      left: 470,
+      top: 200,
+      flipX: true,
+      selectable: false
+    });
+
+    var group_arrow_w_bus_w_regs = new fabric.Group([ new fabric.Rect({
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      width: 80,
+      height: 1
+    }), 
+    new fabric.Text('8', {
+      fontSize: 16,
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      top: -15
+    }),
+    new fabric.Triangle({
+      fill: '#8B5CF6',
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 42
+    })
+     ], {
+      left: 470,
+      top: 330,
+      selectable: false
+    });
+
+    var group_arrow_w_bus_w_output_regs = new fabric.Group([ new fabric.Rect({
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      width: 80,
+      height: 1
+    }), 
+    new fabric.Text('8', {
+      fontSize: 16,
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      top: -15
+    }),
+    new fabric.Triangle({
+      fill: '#8B5CF6',
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 42
+    })
+     ], {
+      left: 470,
+      top: 460,
+      selectable: false
+    });
+
+    canvas.add(group_arrow_w_bus_w_output_regs, group_arrow_w_bus_w_regs, group_arrow_adder_substractor_w_bus, group_arrow_w_bus_accumulator, group_arrow_program_counter_w_bus, group_arrow_w_bus_input_mar, group_arrow_RAM_w_bus, group_arrow_instruction_regs_w_bus, group_arrow_w_bus_instruction_regs);
+    
+    // vertical arrows 
+
+    var group_arrow_input_mar_ram = new fabric.Group([ new fabric.Rect({
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      width: 38,
+      height: 1
+    }), 
+    new fabric.Text('4', {
+      fontSize: 16,
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      top: -15,
+      angle: 270
+    }),
+    new fabric.Triangle({
+      fill: '#8B5CF6',
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 23
+    })
+     ], {
+      left: 145,
+      top: 255,
+      angle: 90,
+      selectable: false
+    });
+
+    var group_arrow_regs_controller = new fabric.Group([ new fabric.Rect({
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      width: 38,
+      height: 1
+    }), 
+    new fabric.Text('4', {
+      fontSize: 16,
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      top: -15,
+      angle: 270
+    }),
+    new fabric.Triangle({
+      fill: '#8B5CF6',
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 23
+    })
+     ], {
+      left: 145,
+      top: 520,
+      angle: 90,
+      selectable: false
+    });
+
+    var group_arrow_output_regs_binary = new fabric.Group([ new fabric.Rect({
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      width: 38,
+      height: 1
+    }), 
+    new fabric.Text('8', {
+      fontSize: 16,
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      top: -15,
+      angle: 270
+    }),
+    new fabric.Triangle({
+      fill: '#8B5CF6',
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 23
+    })
+     ], {
+      left: 655,
+      top: 520,
+      angle: 90,
+      selectable: false
+    });
+
+    var group_arrow_b_regs_subtractor = new fabric.Group([ new fabric.Rect({
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      width: 38,
+      height: 1
+    }), 
+    new fabric.Text('8', {
+      fontSize: 16,
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      top: -15,
+      flipX: true,
+      angle: 270
+    }),
+    new fabric.Triangle({
+      fill: '#8B5CF6',
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 23
+    })
+     ], {
+      left: 655,
+      top: 255,
+      angle: 90,
+      flipX: true,
+      selectable: false
+    });
+
+    var group_arrow_subtractor_accumulator = new fabric.Group([ new fabric.Rect({
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      width: 38,
+      height: 1
+    }), 
+    new fabric.Text('8', {
+      fontSize: 16,
+      fill: '#8B5CF6',
+      originX: 'center',
+      originY: 'center',
+      top: -15,
+      angle: 270
+    }),
+    new fabric.Triangle({
+      fill: '#8B5CF6',
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 23
+    })
+     ], {
+      left: 655,
+      top: 122,
+      angle: 90,
+      selectable: false
+    });
+
+    canvas.add(group_arrow_subtractor_accumulator, group_arrow_b_regs_subtractor, group_arrow_output_regs_binary, group_arrow_regs_controller, group_arrow_input_mar_ram);
+    }
+    // fabric.Image.fromURL('/')
+
     var group_moving_process = new fabric.Group([ new fabric.Rect({
       fill: '#5B21B6',
       originX: 'center',
@@ -209,7 +647,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 555,
+      left: 565,
       top: 38,
       selectable: false
     });
@@ -235,7 +673,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 555,
+      left: 565,
       top: 170,
       selectable: false
     });
@@ -261,7 +699,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 555,
+      left: 565,
       top: 300,
       selectable: false
     });
@@ -287,7 +725,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 555,
+      left: 565,
       top: 435,
       selectable: false
     });
@@ -313,7 +751,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 555,
+      left: 565,
       top: 570,
       selectable: false
     });
@@ -339,7 +777,7 @@
       fontFamily: 'Calibri'
     }) 
       ], {
-      left: 555,
+      left: 565,
       top: 680,
       selectable: false
     });
