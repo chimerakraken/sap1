@@ -1205,7 +1205,8 @@
     //   selectable: false
     // });
 
-    var pin_program_counter_Cp = new fabric.Text('Cp', {
+    
+    var pin_controller_Cp = new fabric.Text('Cp', {
       fontSize: 14,
       fill: indigo,
       originX: 'center',
@@ -1217,19 +1218,19 @@
       selectable: false
     })
 
-    // var pin_program_counter_Ep = new fabric.Text('Ep', {
-    //   fontSize: 14,
-    //   fill: indigo,
-    //   originX: 'center',
-    //   originY: 'center',
-    //   fontWeight: '400',
-    //   fontFamily: 'Calibri',
-    //   top: 720,
-    //   left: 193,
-    //   selectable: false
-    // })
+    var pin_controller_Ep = new fabric.Text('Ep', {
+      fontSize: 14,
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 720,
+      left: 193,
+      selectable: false
+    })
 
-    var pin_program_counter_Lm = new fabric.Text('Lm', {
+    var pin_controller_Lm = new fabric.Text('Lm', {
       fontSize: 14,
       fill: indigo,
       originX: 'center',
@@ -1241,7 +1242,7 @@
       selectable: false
     })
 
-    var pin_program_counter_Er = new fabric.Text('Er', {
+    var pin_controller_Er = new fabric.Text('Er', {
       fontSize: 14,
       fill: indigo,
       originX: 'center',
@@ -1253,7 +1254,7 @@
       selectable: false
     })
 
-    var pin_program_counter_Li = new fabric.Text('Li', {
+    var pin_controller_Li = new fabric.Text('Li', {
       fontSize: 14,
       fill: indigo,
       originX: 'center',
@@ -1265,7 +1266,7 @@
       selectable: false
     })
 
-    var pin_program_counter_Ei = new fabric.Text('Ei', {
+    var pin_controller_Ei = new fabric.Text('Ei', {
       fontSize: 14,
       fill: indigo,
       originX: 'center',
@@ -1278,7 +1279,7 @@
     })
 
     
-    var pin_program_counter_La = new fabric.Text('La', {
+    var pin_controller_La = new fabric.Text('La', {
       fontSize: 14,
       fill: indigo,
       originX: 'center',
@@ -1291,7 +1292,7 @@
     })
 
     
-    var pin_program_counter_Ea = new fabric.Text('Ea', {
+    var pin_controller_Ea = new fabric.Text('Ea', {
       fontSize: 14,
       fill: indigo,
       originX: 'center',
@@ -1304,7 +1305,7 @@
     })
 
 
-    var pin_program_counter_Su = new fabric.Text('Su', {
+    var pin_controller_Su = new fabric.Text('Su', {
       fontSize: 14,
       fill: indigo,
       originX: 'center',
@@ -1316,7 +1317,7 @@
       selectable: false
     })
 
-    var pin_program_counter_Eu = new fabric.Text('Eu', {
+    var pin_controller_Eu = new fabric.Text('Eu', {
       fontSize: 14,
       fill: indigo,
       originX: 'center',
@@ -1328,7 +1329,7 @@
       selectable: false
     })
 
-    var pin_program_counter_Lb = new fabric.Text('Lb', {
+    var pin_controller_Lb = new fabric.Text('Lb', {
       fontSize: 14,
       fill: indigo,
       originX: 'center',
@@ -1340,7 +1341,7 @@
       selectable: false
     })
 
-    var pin_program_counter_Lo = new fabric.Text('Lo', {
+    var pin_controller_Lo = new fabric.Text('Lo', {
       fontSize: 14,
       fill: indigo,
       originX: 'center',
@@ -1353,7 +1354,7 @@
     })
 
 
-  canvas.add(pin_program_counter_Lo, pin_program_counter_Lb, pin_program_counter_Eu, pin_program_counter_Su, pin_program_counter_Ea, pin_program_counter_La, pin_program_counter_Ei, pin_program_counter_Li, pin_program_counter_Er, pin_program_counter_Lm, pin_program_counter_Cp, pin_arrow_controller_clr, pin_arrow_controller_clk, pin_instruction_regs_Ei, pin_instruction_regs_CLR, pin_instruction_regs_CLK, pin_instruction_regs_Li, pin_RAM_Er, pin_input_mar_CLK, pin_input_mar_Lm, pin_program_counter_ep, pin_program_counter_clr, pin_program_counter_clk, pin_program_counter_cp);  
+  canvas.add(pin_controller_Ep, pin_controller_Lo, pin_controller_Lb, pin_controller_Eu, pin_controller_Su, pin_controller_Ea, pin_controller_La, pin_controller_Ei, pin_controller_Li, pin_controller_Er, pin_controller_Lm, pin_controller_Cp, pin_arrow_controller_clr, pin_arrow_controller_clk, pin_instruction_regs_Ei, pin_instruction_regs_CLR, pin_instruction_regs_CLK, pin_instruction_regs_Li, pin_RAM_Er, pin_input_mar_CLK, pin_input_mar_Lm, pin_program_counter_ep, pin_program_counter_clr, pin_program_counter_clk, pin_program_counter_cp);  
   // Initialize Left Pins end region
 
 
