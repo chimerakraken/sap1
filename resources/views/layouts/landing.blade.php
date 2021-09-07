@@ -17,12 +17,13 @@
   <main>
     <div class="w-full" align="center" style="margin-top: 10vh;">
       <div class="grid grid-cols-6 gap-x-6 mx-48">
-        <div class="col-span-2 h-full bg-gray-500"></div>
+        <div class="col-span-2 h-full bg-gray-500 relative">
+          <button id="animate" class="mt-5 font-sans bg-indigo-900 px-4text-indigo-50 rounded-sm w-full absolute left-0 bottom-0 py-9 text-indigo-50 text-2xl">Start</button>
+        </div>
         <div class="col-span-4 h-full">
           <canvas id="c" width="1000" height="780"></canvas>
         </div>
       </div>
-      <button id="animate" class="mt-5 font-sans text-base bg-indigo-900 px-4 py-2 text-indigo-50 rounded-sm">Start</button>
     </div>
   </main>
 </body>
@@ -582,7 +583,7 @@
       height: 50,
       stroke: indigo,
       strokeWidth: 2,
-    }), 
+    }),  
     new fabric.Text('16x8 PROM', {
       fontSize: 16,
       fill: indigo,
@@ -808,7 +809,7 @@
 
   // Initialize right end region
     
-  canvas.add(group_accumulator, group_adder_subtractor, group_b_register, group_output_regs, group_binary_display, group_state);
+  canvas.add(group_accumulator, group_adder_subtractor, group_b_register, group_output_regs, group_binary_display);
 
   // Initialize W-BUS
 
