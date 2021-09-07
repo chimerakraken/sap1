@@ -32,6 +32,7 @@
 
     // Initialize left
     var left_margin = 130;
+    var indigo = "#312E81";
     var canvas = new fabric.Canvas('c');
     canvas.width  = $(window).width()*2; 
     canvas.height = 1000;
@@ -43,7 +44,7 @@
     function init_arrows(){
     // left arrows
     var group_arrow_program_counter_w_bus = new fabric.Group([ new fabric.Rect({
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 80,
@@ -51,13 +52,13 @@
     }), 
     new fabric.Text('4', {
       fontSize: 12,
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       top: -15
     }),
     new fabric.Triangle({
-      fill: '#8B5CF6',
+      fill: indigo,
       top: -4,
       width: 7,
       height: 5,
@@ -71,7 +72,7 @@
     });
 
     var group_arrow_w_bus_input_mar = new fabric.Group([ new fabric.Rect({
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 80,
@@ -79,14 +80,14 @@
     }), 
     new fabric.Text('4', {
       fontSize: 12,
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       flipX: true,
       top: -15
     }),
     new fabric.Triangle({
-      fill: '#8B5CF6',
+      fill: indigo,
       top: -4,
       width: 7,
       height: 5,
@@ -101,7 +102,7 @@
     });
 
     var group_arrow_RAM_w_bus = new fabric.Group([ new fabric.Rect({
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 80,
@@ -109,13 +110,13 @@
     }), 
     new fabric.Text('8', {
       fontSize: 12,
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       top: -15
     }),
     new fabric.Triangle({
-      fill: '#8B5CF6',
+      fill: indigo,
       top: -4,
       width: 7,
       height: 5,
@@ -130,7 +131,7 @@
 
 
     var group_arrow_w_bus_instruction_regs = new fabric.Group([ new fabric.Rect({
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 80,
@@ -138,14 +139,14 @@
     }), 
     new fabric.Text('8', {
       fontSize: 12,
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       flipX: true,
       top: -15
     }),
     new fabric.Triangle({
-      fill: '#8B5CF6',
+      fill: indigo,
       top: -4,
       width: 7,
       height: 5,
@@ -161,7 +162,7 @@
 
     
     var group_arrow_instruction_regs_w_bus = new fabric.Group([ new fabric.Rect({
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 80,
@@ -169,13 +170,13 @@
     }), 
     new fabric.Text('4', {
       fontSize: 12,
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       top: 15
     }),
     new fabric.Triangle({
-      fill: '#8B5CF6',
+      fill: indigo,
       top: -4,
       width: 7,
       height: 5,
@@ -190,7 +191,7 @@
 
     // right arrows group_arrow_w_bus_accumulator
     var group_arrow_w_bus_accumulator = new fabric.Group([ new fabric.Rect({
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 80,
@@ -198,13 +199,13 @@
     }), 
     new fabric.Text('8', {
       fontSize: 12,
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       top: -15
     }),
     new fabric.Triangle({
-      fill: '#8B5CF6',
+      fill: indigo,
       top: -4,
       width: 7,
       height: 5,
@@ -212,7 +213,7 @@
       left: 42
     })
     , new fabric.Triangle({
-      fill: '#8B5CF6',
+      fill: indigo,
       top: 4,
       width: 7,
       height: 5,
@@ -227,7 +228,7 @@
 
     
     var group_arrow_adder_substractor_w_bus = new fabric.Group([ new fabric.Rect({
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 80,
@@ -235,14 +236,14 @@
     }), 
     new fabric.Text('4', {
       fontSize: 12,
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       flipX: true,
       top: -15
     }),
     new fabric.Triangle({
-      fill: '#8B5CF6',
+      fill: indigo,
       top: -4,
       width: 7,
       height: 5,
@@ -257,7 +258,7 @@
     });
 
     var group_arrow_w_bus_w_regs = new fabric.Group([ new fabric.Rect({
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 80,
@@ -265,13 +266,13 @@
     }), 
     new fabric.Text('8', {
       fontSize: 12,
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       top: -15
     }),
     new fabric.Triangle({
-      fill: '#8B5CF6',
+      fill: indigo,
       top: -4,
       width: 7,
       height: 5,
@@ -285,7 +286,7 @@
     });
 
     var group_arrow_w_bus_w_output_regs = new fabric.Group([ new fabric.Rect({
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 80,
@@ -293,13 +294,13 @@
     }), 
     new fabric.Text('8', {
       fontSize: 12,
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       top: -15
     }),
     new fabric.Triangle({
-      fill: '#8B5CF6',
+      fill: indigo,
       top: -4,
       width: 7,
       height: 5,
@@ -317,7 +318,7 @@
     // vertical arrows 
 
     var group_arrow_input_mar_ram = new fabric.Group([ new fabric.Rect({
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 38,
@@ -325,14 +326,14 @@
     }), 
     new fabric.Text('4', {
       fontSize: 12,
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       top: -15,
       angle: 270
     }),
     new fabric.Triangle({
-      fill: '#8B5CF6',
+      fill: indigo,
       top: -4,
       width: 7,
       height: 5,
@@ -347,7 +348,7 @@
     });
 
     var group_arrow_regs_controller = new fabric.Group([ new fabric.Rect({
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 38,
@@ -355,14 +356,14 @@
     }), 
     new fabric.Text('4', {
       fontSize: 12,
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       top: -15,
       angle: 270
     }),
     new fabric.Triangle({
-      fill: '#8B5CF6',
+      fill: indigo,
       top: -4,
       width: 7,
       height: 5,
@@ -377,7 +378,7 @@
     });
 
     var group_arrow_output_regs_binary = new fabric.Group([ new fabric.Rect({
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 38,
@@ -385,14 +386,14 @@
     }), 
     new fabric.Text('8', {
       fontSize: 12,
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       top: -15,
       angle: 270
     }),
     new fabric.Triangle({
-      fill: '#8B5CF6',
+      fill: indigo,
       top: -4,
       width: 7,
       height: 5,
@@ -407,7 +408,7 @@
     });
 
     var group_arrow_b_regs_subtractor = new fabric.Group([ new fabric.Rect({
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 38,
@@ -415,7 +416,7 @@
     }), 
     new fabric.Text('8', {
       fontSize: 12,
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       top: -15,
@@ -423,7 +424,7 @@
       angle: 270
     }),
     new fabric.Triangle({
-      fill: '#8B5CF6',
+      fill: indigo,
       top: -4,
       width: 7,
       height: 5,
@@ -439,7 +440,7 @@
     });
 
     var group_arrow_subtractor_accumulator = new fabric.Group([ new fabric.Rect({
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 38,
@@ -447,14 +448,14 @@
     }), 
     new fabric.Text('8', {
       fontSize: 12,
-      fill: '#8B5CF6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       top: -15,
       angle: 270
     }),
     new fabric.Triangle({
-      fill: '#8B5CF6',
+      fill: indigo,
       top: -4,
       width: 7,
       height: 5,
@@ -473,7 +474,7 @@
     // fabric.Image.fromURL('/')
 
     var group_moving_process = new fabric.Group([ new fabric.Rect({
-      fill: '#5B21B6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 100,
@@ -497,12 +498,12 @@
       originY: 'center',
       width: 140,
       height: 50,
-      stroke: '#5B21B6',
+      stroke: indigo,
       strokeWidth: 2,
     }), 
     new fabric.Text('Program Counter', {
       fontSize: 16,
-      fill: '#5B21B6',
+      fill: indigo,
       top: -40,
       originX: 'center',
       originY: 'center',
@@ -523,12 +524,12 @@
       originY: 'center',
       width: 140,
       height: 50,
-      stroke: '#5B21B6',
+      stroke: indigo,
       strokeWidth: 2,
     }), 
     new fabric.Text('Input and MAR', {
       fontSize: 16,
-      fill: '#5B21B6',
+      fill: indigo,
       top: -40,
       originX: 'center',
       originY: 'center',
@@ -548,12 +549,12 @@
       originY: 'center',
       width: 140,
       height: 50,
-      stroke: '#5B21B6',
+      stroke: indigo,
       strokeWidth: 2,
     }), 
     new fabric.Text('16x8 RAM', {
       fontSize: 16,
-      fill: '#5B21B6',
+      fill: indigo,
       top: -40,
       originX: 'center',
       originY: 'center',
@@ -573,12 +574,12 @@
       originY: 'center',
       width: 140,
       height: 50,
-      stroke: '#5B21B6',
+      stroke: indigo,
       strokeWidth: 2,
     }), 
     new fabric.Text('Instruction Register', {
       fontSize: 16,
-      fill: '#5B21B6',
+      fill: indigo,
       top: -40,
       originX: 'center',
       originY: 'center',
@@ -598,12 +599,12 @@
       originY: 'center',
       width: 140,
       height: 50,
-      stroke: '#5B21B6',
+      stroke: indigo,
       strokeWidth: 2,
     }), 
     new fabric.Text('Controller/Sequencer', {
       fontSize: 16,
-      fill: '#5B21B6',
+      fill: indigo,
       top: -40,
       originX: 'center',
       originY: 'center',
@@ -628,12 +629,12 @@
       originY: 'center',
       width: 140,
       height: 50,
-      stroke: '#5B21B6',
+      stroke: indigo,
       strokeWidth: 2,
     }), 
     new fabric.Text('Accumulator', {
       fontSize: 16,
-      fill: '#5B21B6',
+      fill: indigo,
       top: -40,
       originX: 'center',
       originY: 'center',
@@ -653,12 +654,12 @@
       originY: 'center',
       width: 140,
       height: 50,
-      stroke: '#5B21B6',
+      stroke: indigo,
       strokeWidth: 2,
     }), 
     new fabric.Text('Adder/Subtractor', {
       fontSize: 16,
-      fill: '#5B21B6',
+      fill: indigo,
       top: -40,
       originX: 'center',
       originY: 'center',
@@ -678,12 +679,12 @@
       originY: 'center',
       width: 140,
       height: 50,
-      stroke: '#5B21B6',
+      stroke: indigo,
       strokeWidth: 2,
     }), 
     new fabric.Text('B Register', {
       fontSize: 16,
-      fill: '#5B21B6',
+      fill: indigo,
       top: -40,
       originX: 'center',
       originY: 'center',
@@ -703,12 +704,12 @@
       originY: 'center',
       width: 140,
       height: 50,
-      stroke: '#5B21B6',
+      stroke: indigo,
       strokeWidth: 2,
     }), 
     new fabric.Text('Output Register', {
       fontSize: 16,
-      fill: '#5B21B6',
+      fill: indigo,
       top: -40,
       originX: 'center',
       originY: 'center',
@@ -728,12 +729,12 @@
       originY: 'center',
       width: 140,
       height: 50,
-      stroke: '#5B21B6',
+      stroke: indigo,
       strokeWidth: 2,
     }), 
     new fabric.Text('Binary Display', {
       fontSize: 16,
-      fill: '#5B21B6',
+      fill: indigo,
       top: -40,
       originX: 'center',
       originY: 'center',
@@ -753,12 +754,12 @@
       originY: 'center',
       width: 140,
       height: 50,
-      stroke: '#5B21B6',
+      stroke: indigo,
       strokeWidth: 2,
     }), 
     new fabric.Text('State', {
       fontSize: 16,
-      fill: '#5B21B6',
+      fill: indigo,
       top: -40,
       originX: 'center',
       originY: 'center',
@@ -784,12 +785,12 @@
       originY: 'center',
       width: 150,
       height: 584,
-      stroke: '#5B21B6',
+      stroke: indigo,
       strokeWidth: 2,
     }), 
     new fabric.Text('W-BUS', {
       fontSize: 16,
-      fill: '#5B21B6',
+      fill: indigo,
       top: -40,
       originX: 'center',
       originY: 'center',
@@ -807,7 +808,7 @@
   // Initialize Left Pins
 
     var pin_program_counter_clk = new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 45,
@@ -816,7 +817,7 @@
     }), 
     new fabric.Text('CLK', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -831,7 +832,7 @@
     });
 
     var pin_program_counter_clr = new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 45,
@@ -840,7 +841,7 @@
     }), 
     new fabric.Text('CLR', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -856,7 +857,7 @@
 
 
     var pin_program_counter_ep = new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 51,
@@ -865,7 +866,7 @@
     }), 
     new fabric.Text('Ep', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -880,7 +881,7 @@
     });
 
     var pin_program_counter_cp = new fabric.Group([ new fabric.Rect({
-      fill: '#5B21B6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 49,
@@ -889,7 +890,7 @@
     }), 
     new fabric.Text('Cp', {
       fontSize: 12,
-      fill: '#5B21B6',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '800',
@@ -904,7 +905,7 @@
     });
 
     var pin_input_mar_Lm = new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 48,
@@ -913,7 +914,7 @@
     }), 
     new fabric.Text('Lm', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -928,7 +929,7 @@
     });
 
     var pin_input_mar_CLK = new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 46,
@@ -937,7 +938,7 @@
     }), 
     new fabric.Text('CLK', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -952,7 +953,7 @@
     });
 
     var pin_RAM_Er= new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 50,
@@ -961,7 +962,7 @@
     }), 
     new fabric.Text('Er', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -976,7 +977,7 @@
     });
 
     var pin_instruction_regs_Li= new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 50,
@@ -985,7 +986,7 @@
     }), 
     new fabric.Text('Li', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -1001,7 +1002,7 @@
 
     
     var pin_instruction_regs_CLK= new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 40,
@@ -1010,7 +1011,7 @@
     }), 
     new fabric.Text('CLK', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -1025,7 +1026,7 @@
     });
 
     var pin_instruction_regs_CLR= new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 40,
@@ -1034,7 +1035,7 @@
     }), 
     new fabric.Text('CLR', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -1049,7 +1050,7 @@
     });
 
     var pin_instruction_regs_Ei= new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 49,
@@ -1058,7 +1059,7 @@
     }), 
     new fabric.Text('Ei', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -1073,14 +1074,81 @@
     });
     
 
-  canvas.add(pin_instruction_regs_Ei, pin_instruction_regs_CLR, pin_instruction_regs_CLK, pin_instruction_regs_Li, pin_RAM_Er, pin_input_mar_CLK, pin_input_mar_Lm, pin_program_counter_ep, pin_program_counter_clr, pin_program_counter_clk, pin_program_counter_cp);  
+    var pin_arrow_controller_clk = new fabric.Group([ new fabric.Rect({
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      width: 40,
+      height: 1
+    }), 
+    new fabric.Text('CLK', {
+      fontSize: 12,
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      flipX: true,
+      left: 38
+    }),
+    new fabric.Triangle({
+      fill: indigo,
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 23
+    })
+     ], {
+      left: 119,
+      top: 605,
+      flipX: true,
+      selectable: false
+    });
+
+
+
+    var pin_arrow_controller_clr = new fabric.Group([ new fabric.Rect({
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      width: 40,
+      height: 1
+    }), 
+    new fabric.Text('CLR', {
+      fontSize: 12,
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      flipX: true,
+      left: 38
+    }),
+    new fabric.Triangle({
+      fill: indigo,
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 23
+    })
+     ], {
+      left: 119,
+      top: 625,
+      flipX: true,
+      selectable: false
+    });
+
+
+  canvas.add( pin_arrow_controller_clr, pin_arrow_controller_clk, pin_instruction_regs_Ei, pin_instruction_regs_CLR, pin_instruction_regs_CLK, pin_instruction_regs_Li, pin_RAM_Er, pin_input_mar_CLK, pin_input_mar_Lm, pin_program_counter_ep, pin_program_counter_clr, pin_program_counter_clk, pin_program_counter_cp);  
   // Initialize Left Pins end region
 
 
   // Initialzie right pins 
 
   var pin_accumulator_la = new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 44,
@@ -1089,7 +1157,7 @@
     }), 
     new fabric.Text('La', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -1104,7 +1172,7 @@
     });
 
     var pin_accumulator_clk = new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 44,
@@ -1113,7 +1181,7 @@
     }), 
     new fabric.Text('CLK', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -1129,7 +1197,7 @@
 
 
     var pin_accumulator_ea = new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 44,
@@ -1138,7 +1206,7 @@
     }), 
     new fabric.Text('Ea', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -1154,7 +1222,7 @@
 
 
     var pin_adder_substractor_su = new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 44,
@@ -1163,7 +1231,7 @@
     }), 
     new fabric.Text('Su', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -1180,7 +1248,7 @@
 
     
     var pin_adder_substractor_eu = new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 44,
@@ -1189,7 +1257,7 @@
     }), 
     new fabric.Text('Eu', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -1205,7 +1273,7 @@
 
 
     var pin_b_register_lb = new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 44,
@@ -1214,7 +1282,7 @@
     }), 
     new fabric.Text('Lb', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -1229,7 +1297,7 @@
     });
 
     var pin_b_register_CLK = new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 44,
@@ -1238,7 +1306,7 @@
     }), 
     new fabric.Text('CLK', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -1254,7 +1322,7 @@
 
 
     var pin_output_regs_Lo = new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 44,
@@ -1263,7 +1331,7 @@
     }), 
     new fabric.Text('Lo', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -1278,7 +1346,7 @@
     });
 
     var pin_output_regs_CLK = new fabric.Group([ new fabric.Rect({
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       width: 44,
@@ -1287,7 +1355,7 @@
     }), 
     new fabric.Text('CLK', {
       fontSize: 12,
-      fill: '#A78BFA',
+      fill: indigo,
       originX: 'center',
       originY: 'center',
       fontWeight: '400',
@@ -1305,7 +1373,7 @@
     canvas.add(pin_output_regs_CLK, pin_output_regs_Lo, pin_b_register_CLK, pin_b_register_lb, pin_adder_substractor_eu, pin_adder_substractor_su, pin_accumulator_ea, pin_accumulator_clk, pin_accumulator_la);
 
     // var pin_program_counter_clr = new fabric.Group([ new fabric.Rect({
-    //   fill: '#A78BFA',
+    //   fill: indigo,
     //   originX: 'center',
     //   originY: 'center',
     //   width: 45,
@@ -1314,7 +1382,7 @@
     // }), 
     // new fabric.Text('CLR', {
     //   fontSize: 12,
-    //   fill: '#A78BFA',
+    //   fill: indigo,
     //   originX: 'center',
     //   originY: 'center',
     //   fontWeight: '400',
@@ -1330,7 +1398,7 @@
 
 
     // var pin_program_counter_ep = new fabric.Group([ new fabric.Rect({
-    //   fill: '#A78BFA',
+    //   fill: indigo,
     //   originX: 'center',
     //   originY: 'center',
     //   width: 51,
@@ -1339,7 +1407,7 @@
     // }), 
     // new fabric.Text('Ep', {
     //   fontSize: 12,
-    //   fill: '#A78BFA',
+    //   fill: indigo,
     //   originX: 'center',
     //   originY: 'center',
     //   fontWeight: '400',
@@ -1354,7 +1422,7 @@
     // });
 
     // var pin_program_counter_cp = new fabric.Group([ new fabric.Rect({
-    //   fill: '#5B21B6',
+    //   fill: indigo,
     //   originX: 'center',
     //   originY: 'center',
     //   width: 49,
@@ -1363,7 +1431,7 @@
     // }), 
     // new fabric.Text('Cp', {
     //   fontSize: 12,
-    //   fill: '#5B21B6',
+    //   fill: indigo,
     //   originX: 'center',
     //   originY: 'center',
     //   fontWeight: '800',
@@ -1391,12 +1459,12 @@
         onComplete: function() {
           
           pin_program_counter_cp.item(1).set({
-            fill: '#A78BFA',
+            fill: indigo,
             fontWeight: '400'
           });
 
           pin_input_mar_CLK.item(1).set({
-            fill: '#5B21B6',
+            fill: indigo,
             fontWeight: '800'
           });
 
