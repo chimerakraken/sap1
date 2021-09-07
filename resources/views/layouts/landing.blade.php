@@ -34,6 +34,7 @@
     // Initialize left
     var left_margin = 130;
     var indigo = "#312E81";
+    var fiery_red = "#B91C1C";
     var canvas = new fabric.Canvas('c');
     canvas.width  = $(window).width()*2; 
     canvas.height = 1000;
@@ -505,24 +506,6 @@
     }
     // fabric.Image.fromURL('/')
 
-    var group_moving_process = new fabric.Group([ new fabric.Rect({
-      fill: indigo,
-      originX: 'center',
-      originY: 'center',
-      width: 100,
-      height: 20
-    }), 
-    new fabric.Text('1001 1010', {
-      fontSize: 16,
-      fill: 'white',
-      originX: 'center',
-      originY: 'center'
-    }) ], {
-      left: 75 + left_margin,
-      top: 75,
-      selectable: false
-    });
-
     var group_program_counter = new fabric.Group([ 
       new fabric.Rect({
       fill: 'transparent',
@@ -652,7 +635,7 @@
 
    // Initialize left end region
 
-    canvas.add(group_moving_process, group_program_counter, group_input_mar, group_ram, group_instruction_regs, group_controller_sequence);
+    canvas.add(group_program_counter, group_input_mar, group_ram, group_instruction_regs, group_controller_sequence);
 
   //  Initialize right 
     var group_accumulator = new fabric.Group([ 
@@ -928,7 +911,7 @@
       fill: indigo,
       originX: 'center',
       originY: 'center',
-      fontWeight: '800',
+      fontWeight: '400',
       fontFamily: 'Calibri',
       top: 0,
       left: -18
@@ -1234,17 +1217,17 @@
       selectable: false
     })
 
-    var pin_program_counter_Ep = new fabric.Text('Ep', {
-      fontSize: 14,
-      fill: indigo,
-      originX: 'center',
-      originY: 'center',
-      fontWeight: '400',
-      fontFamily: 'Calibri',
-      top: 720,
-      left: 193,
-      selectable: false
-    })
+    // var pin_program_counter_Ep = new fabric.Text('Ep', {
+    //   fontSize: 14,
+    //   fill: indigo,
+    //   originX: 'center',
+    //   originY: 'center',
+    //   fontWeight: '400',
+    //   fontFamily: 'Calibri',
+    //   top: 720,
+    //   left: 193,
+    //   selectable: false
+    // })
 
     var pin_program_counter_Lm = new fabric.Text('Lm', {
       fontSize: 14,
@@ -1370,7 +1353,7 @@
     })
 
 
-  canvas.add(pin_program_counter_Lo, pin_program_counter_Lb, pin_program_counter_Eu, pin_program_counter_Su, pin_program_counter_Ea, pin_program_counter_La, pin_program_counter_Ei, pin_program_counter_Li, pin_program_counter_Er, pin_program_counter_Lm, pin_program_counter_Ep, pin_program_counter_Cp, pin_arrow_controller_clr, pin_arrow_controller_clk, pin_instruction_regs_Ei, pin_instruction_regs_CLR, pin_instruction_regs_CLK, pin_instruction_regs_Li, pin_RAM_Er, pin_input_mar_CLK, pin_input_mar_Lm, pin_program_counter_ep, pin_program_counter_clr, pin_program_counter_clk, pin_program_counter_cp);  
+  canvas.add(pin_program_counter_Lo, pin_program_counter_Lb, pin_program_counter_Eu, pin_program_counter_Su, pin_program_counter_Ea, pin_program_counter_La, pin_program_counter_Ei, pin_program_counter_Li, pin_program_counter_Er, pin_program_counter_Lm, pin_program_counter_Cp, pin_arrow_controller_clr, pin_arrow_controller_clk, pin_instruction_regs_Ei, pin_instruction_regs_CLR, pin_instruction_regs_CLK, pin_instruction_regs_Li, pin_RAM_Er, pin_input_mar_CLK, pin_input_mar_Lm, pin_program_counter_ep, pin_program_counter_clr, pin_program_counter_clk, pin_program_counter_cp);  
   // Initialize Left Pins end region
 
 
@@ -1677,51 +1660,93 @@
   // initialize right pins end region
   canvas.add(group_w_bus);
 
+  var group_moving_process = new fabric.Group([ new fabric.Rect({
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      width: 100,
+      height: 20
+    }), 
+    new fabric.Text('0000', {
+      fontSize: 16,
+      fill: 'white',
+      originX: 'center',
+      originY: 'center'
+    }) ], {
+      left: 75 + left_margin,
+      top: 75,
+      selectable: false
+    });
+
     var animateBtn = document.getElementById('animate');
     animateBtn.onclick = function() {
+    canvas.add(group_moving_process); 
+    programCounterToMar();
+    };
+
+
+    
+    function programCounterToMar(){
+      pin_program_counter_ep.item(1).set({
+                fill: fiery_red,
+                fontWeight: '800'
+              });
+
+              pin_program_counter_ep.item(0).set({
+                fill: fiery_red,
+              });
+
+      pin_input_mar_Lm.item(1).set({
+                fill: fiery_red,
+                fontWeight: '800'
+              });
+
+              pin_input_mar_Lm.item(0).set({
+                fill: fiery_red,
+              });
+
+        // console.log(pin_program_counter_ep);
       animateBtn.disabled = true;
-
-      //left bottom right
       group_moving_process.animate('left', group_moving_process.left === 75 + left_margin ? 332 + left_margin : 75 + left_margin, {
-        duration: 1000,
-        onChange: canvas.renderAll.bind(canvas),
-        onComplete: function() {
-          
-          pin_program_counter_cp.item(1).set({
-            fill: indigo,
-            fontWeight: '400'
-          });
-
-          pin_input_mar_CLK.item(1).set({
-            fill: indigo,
-            fontWeight: '800'
-          });
-
-          group_moving_process.animate('top', '+=133', {
-            duration: 1000,
+            duration: 2000,
             onChange: canvas.renderAll.bind(canvas),
             onComplete: function() {
+              
+          
 
-              group_moving_process.animate('left', 75 + left_margin, {
-                duration: 1000,
+              // pin_input_mar_CLK.item(1).set({
+              //   fill: indigo,
+              //   fontWeight: '800'
+              // });
+
+              group_moving_process.animate('top', '+=133', {
+                duration: 2000,
                 onChange: canvas.renderAll.bind(canvas),
                 onComplete: function() {
-                  animateBtn.disabled = false;
+
+                  group_moving_process.animate('left', 75 + left_margin, {
+                    duration: 2000,
+                    onChange: canvas.renderAll.bind(canvas),
+                    onComplete: function() {
+                      animateBtn.disabled = false;
+                    },
+                    
+                    easing: fabric.util.easeInOutBack
+                  });
                 },
-                
                 easing: fabric.util.easeInOutBack
               });
             },
             easing: fabric.util.easeInOutBack
           });
-        },
-        easing: fabric.util.easeInOutBack
-      });
 
-     
-    };
+    }
+
+
   });
  
+
+
 </script>
 
 </html>
