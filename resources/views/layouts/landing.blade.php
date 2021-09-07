@@ -469,7 +469,38 @@
       selectable: false
     });
 
-    canvas.add(group_arrow_subtractor_accumulator, group_arrow_b_regs_subtractor, group_arrow_output_regs_binary, group_arrow_regs_controller, group_arrow_input_mar_ram);
+
+    var group_arrow_controller_bottom = new fabric.Group([ new fabric.Rect({
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      width: 38,
+      height: 1
+    }), 
+    new fabric.Text('12', {
+      fontSize: 12,
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      top: -15,
+      angle: 270
+    }),
+    new fabric.Triangle({
+      fill: indigo,
+      top: -4,
+      width: 7,
+      height: 5,
+      angle: 90,
+      left: 23
+    })
+     ], {
+      left: 145 + left_margin,
+      top: 655,
+      angle: 90,
+      selectable: false
+    });
+
+    canvas.add(group_arrow_controller_bottom, group_arrow_subtractor_accumulator, group_arrow_b_regs_subtractor, group_arrow_output_regs_binary, group_arrow_regs_controller, group_arrow_input_mar_ram);
     }
     // fabric.Image.fromURL('/')
 
@@ -527,7 +558,7 @@
       stroke: indigo,
       strokeWidth: 2,
     }), 
-    new fabric.Text('Input and MAR', {
+    new fabric.Text('MAR', {
       fontSize: 16,
       fill: indigo,
       top: -40,
@@ -552,7 +583,7 @@
       stroke: indigo,
       strokeWidth: 2,
     }), 
-    new fabric.Text('16x8 RAM', {
+    new fabric.Text('16x8 PROM', {
       fontSize: 16,
       fill: indigo,
       top: -40,
@@ -602,7 +633,8 @@
       stroke: indigo,
       strokeWidth: 2,
     }), 
-    new fabric.Text('Controller/Sequencer', {
+    // new fabric.Text('Controller/Sequencer', {
+    new fabric.Text('Control Unit', {
       fontSize: 16,
       fill: indigo,
       top: -40,
@@ -632,7 +664,8 @@
       stroke: indigo,
       strokeWidth: 2,
     }), 
-    new fabric.Text('Accumulator', {
+    // new fabric.Text('Accumulator', {
+    new fabric.Text('A Register', {
       fontSize: 16,
       fill: indigo,
       top: -40,
@@ -657,7 +690,8 @@
       stroke: indigo,
       strokeWidth: 2,
     }), 
-    new fabric.Text('Adder/Subtractor', {
+    // new fabric.Text('Adder/Subtractor', {
+    new fabric.Text('Arithmetic Logic Unit', {
       fontSize: 16,
       fill: indigo,
       top: -40,
@@ -1140,8 +1174,202 @@
       selectable: false
     });
 
+    // var pin_program_counter_Cp = new fabric.Group([ new fabric.Rect({
+    //   fill: indigo,
+    //   originX: 'center',
+    //   originY: 'center',
+    //   width: 45,
+    //   height: 1,
+    //   left: 15
+    // }), 
+    // new fabric.Text('Cp', {
+    //   fontSize: 12,
+    //   fill: indigo,
+    //   originX: 'center',
+    //   originY: 'center',
+    //   fontWeight: '400',
+    //   fontFamily: 'Calibri',
+    //   top: 0,
+    //   left: -18
+    // })
+    //  ], {
+    //   left: 120,
+    //   top: 75,
+    //   selectable: false
+    // });
+    // ic.Group([ new fabric.Rect({
+    //   fill: indigo,
+    //   originX: 'center',
+    //   originY: 'center',
+    //   width: 45,
+    //   height: 1,
+    //   left: 15
+    // }), 
+    // new fabric.Text('CLR', {
+    //   fontSize: 12,
+    //   fill: indigo,
+    //   originX: 'center',
+    //   originY: 'center',
+    //   fontWeight: '400',
+    //   fontFamily: 'Calibri',
+    //   top: 0,
+    //   left: -18
+    // })
+    //  ], {
+    //   left: 120,
+    //   top: 88,
+    //   selectable: false
+    // });
 
-  canvas.add( pin_arrow_controller_clr, pin_arrow_controller_clk, pin_instruction_regs_Ei, pin_instruction_regs_CLR, pin_instruction_regs_CLK, pin_instruction_regs_Li, pin_RAM_Er, pin_input_mar_CLK, pin_input_mar_Lm, pin_program_counter_ep, pin_program_counter_clr, pin_program_counter_clk, pin_program_counter_cp);  
+    var pin_program_counter_Cp = new fabric.Text('Cp', {
+      fontSize: 14,
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 720,
+      left: 178,
+      selectable: false
+    })
+
+    var pin_program_counter_Ep = new fabric.Text('Ep', {
+      fontSize: 14,
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 720,
+      left: 193,
+      selectable: false
+    })
+
+    var pin_program_counter_Lm = new fabric.Text('Lm', {
+      fontSize: 14,
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 720,
+      left: 210,
+      selectable: false
+    })
+
+    var pin_program_counter_Er = new fabric.Text('Er', {
+      fontSize: 14,
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 720,
+      left: 226,
+      selectable: false
+    })
+
+    var pin_program_counter_Li = new fabric.Text('Li', {
+      fontSize: 14,
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 720,
+      left: 242,
+      selectable: false
+    })
+
+    var pin_program_counter_Ei = new fabric.Text('Ei', {
+      fontSize: 14,
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 720,
+      left: 253,
+      selectable: false
+    })
+
+    
+    var pin_program_counter_La = new fabric.Text('La', {
+      fontSize: 14,
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 720,
+      left: 265,
+      selectable: false
+    })
+
+    
+    var pin_program_counter_Ea = new fabric.Text('Ea', {
+      fontSize: 14,
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 720,
+      left: 279,
+      selectable: false
+    })
+
+
+    var pin_program_counter_Su = new fabric.Text('Su', {
+      fontSize: 14,
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 720,
+      left: 297,
+      selectable: false
+    })
+
+    var pin_program_counter_Eu = new fabric.Text('Eu', {
+      fontSize: 14,
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 720,
+      left: 312,
+      selectable: false
+    })
+
+    var pin_program_counter_Lb = new fabric.Text('Lb', {
+      fontSize: 14,
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 720,
+      left: 326,
+      selectable: false
+    })
+
+    var pin_program_counter_Lo = new fabric.Text('Lo', {
+      fontSize: 14,
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      fontWeight: '400',
+      fontFamily: 'Calibri',
+      top: 720,
+      left: 340,
+      selectable: false
+    })
+
+
+  canvas.add(pin_program_counter_Lo, pin_program_counter_Lb, pin_program_counter_Eu, pin_program_counter_Su, pin_program_counter_Ea, pin_program_counter_La, pin_program_counter_Ei, pin_program_counter_Li, pin_program_counter_Er, pin_program_counter_Lm, pin_program_counter_Ep, pin_program_counter_Cp, pin_arrow_controller_clr, pin_arrow_controller_clk, pin_instruction_regs_Ei, pin_instruction_regs_CLR, pin_instruction_regs_CLK, pin_instruction_regs_Li, pin_RAM_Er, pin_input_mar_CLK, pin_input_mar_Lm, pin_program_counter_ep, pin_program_counter_clr, pin_program_counter_clk, pin_program_counter_cp);  
   // Initialize Left Pins end region
 
 
