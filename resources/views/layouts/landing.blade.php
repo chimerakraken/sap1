@@ -18,6 +18,7 @@
     <div class="w-full" align="center" style="margin-top: 10vh;">
       <div class="grid grid-cols-6 gap-x-6 mx-48">
         <div class="col-span-2 h-full bg-gray-500 relative">
+          <div class="w-full h-full px-5 py-8 text-center"> <span class=" text-7xl font-semibold text-gray-50">LDA <span id="LDA">14</span></span></div>
           <button id="animate" class="mt-5 font-sans bg-indigo-900 px-4text-indigo-50 rounded-sm w-full absolute left-0 bottom-0 py-9 text-indigo-50 text-2xl">Start</button>
         </div>
         <div class="col-span-4 h-full">
@@ -30,6 +31,12 @@
 
 <script>
   $(document).ready(function(){
+
+    $(document).on('keypress',function(e) {
+    if(e.which == 13) {
+      $('#animate').click();
+    }
+    });
 
     // Initialize left
     var left_margin = 130;
@@ -113,7 +120,7 @@
     new fabric.Text('8', {
       fontSize: 12,
       fill: indigo,
-      originX: 'center',
+      originX: 'center',  
       originY: 'center',
       top: -15
     }),
@@ -1661,7 +1668,7 @@
   // initialize right pins end region
   canvas.add(group_w_bus);
 
-  var group_moving_process = new fabric.Group([ new fabric.Rect({
+  var group_LDAState1_program_counter_mar = new fabric.Group([ new fabric.Rect({
       fill: indigo,
       originX: 'center',
       originY: 'center',
@@ -1679,15 +1686,31 @@
       selectable: false
     });
 
+    var group_LDAState1_PROM = new fabric.Group([ new fabric.Rect({
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      width: 100,
+      height: 20
+    }), 
+    new fabric.Text('0000' + ' ' + parseInt( $('#LDA').html()).toString(2), {
+      fontSize: 16,
+      fill: 'white',
+      originX: 'center',
+      originY: 'center'
+    }) ], {
+      left: 75 + left_margin,
+      top: 341,
+      selectable: false
+    });
+
     var animateBtn = document.getElementById('animate');
     animateBtn.onclick = function() {
-    canvas.add(group_moving_process); 
-    programCounterToMar();
+    canvas.add(group_LDAState1_program_counter_mar); 
+    LDAState1();
     };
 
-
-    
-    function programCounterToMar(){
+    function LDAState1(){
       pin_program_counter_ep.item(1).set({
                 fill: fiery_red,
                 fontWeight: '800'
@@ -1708,7 +1731,7 @@
 
         // console.log(pin_program_counter_ep);
       animateBtn.disabled = true;
-      group_moving_process.animate('left', group_moving_process.left === 75 + left_margin ? 332 + left_margin : 75 + left_margin, {
+      group_LDAState1_program_counter_mar.animate('left', group_LDAState1_program_counter_mar.left === 75 + left_margin ? 332 + left_margin : 75 + left_margin, {
             duration: 2000,
             onChange: canvas.renderAll.bind(canvas),
             onComplete: function() {
@@ -1720,16 +1743,20 @@
               //   fontWeight: '800'
               // });
 
-              group_moving_process.animate('top', '+=133', {
+              group_LDAState1_program_counter_mar.animate('top', '+=133', {
                 duration: 2000,
                 onChange: canvas.renderAll.bind(canvas),
                 onComplete: function() {
 
-                  group_moving_process.animate('left', 75 + left_margin, {
+                  group_LDAState1_program_counter_mar.animate('left', 75 + left_margin, {
                     duration: 2000,
                     onChange: canvas.renderAll.bind(canvas),
                     onComplete: function() {
                       animateBtn.disabled = false;
+
+
+                      canvas.add(group_LDAState1_PROM);
+
                     },
                     
                     easing: fabric.util.easeInOutBack
