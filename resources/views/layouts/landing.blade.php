@@ -1704,12 +1704,87 @@
       selectable: false
     });
 
+    var group_LDAState4_PROM = new fabric.Group([ new fabric.Rect({
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      width: 100,
+      height: 20
+    }), 
+    new fabric.Text('0000' + ' ' + '0111', {
+      fontSize: 16,
+      fill: 'white',
+      originX: 'center',
+      originY: 'center'
+    }) ], {
+      left: 75 + left_margin,
+      top: 341,
+      selectable: false
+    });
+
+
+    var group_LDAState2_program_counter_mar = new fabric.Group([ new fabric.Rect({
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      width: 100,
+      height: 20
+    }), 
+    new fabric.Text('0001', {
+      fontSize: 16,
+      fill: 'white',
+      originX: 'center',
+      originY: 'center'
+    }) ], {
+      left: 75 + left_margin,
+      top: 75,
+      selectable: false
+    });
+
+    var group_LDAState3_controller = new fabric.Group([ new fabric.Rect({
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      width: 100,
+      height: 20
+    }), 
+    new fabric.Text('0000', {
+      fontSize: 16,
+      fill: 'white',
+      originX: 'center',
+      originY: 'center'
+    }) ], {
+      left: 75 + left_margin,
+      top: 474,
+      selectable: false
+    });
+
+    var group_LDAState4_controller_mar = new fabric.Group([ new fabric.Rect({
+      fill: indigo,
+      originX: 'center',
+      originY: 'center',
+      width: 100,
+      height: 20
+    }), 
+    new fabric.Text( parseInt( $('#LDA').html()).toString(2), {
+      fontSize: 16,
+      fill: 'white',
+      originX: 'center',
+      originY: 'center'
+    }) ], {
+      left: 75 + left_margin,
+      top: 474,
+      selectable: false
+    });
+
+
     var animateBtn = document.getElementById('animate');
     animateBtn.onclick = function() {
     canvas.add(group_LDAState1_program_counter_mar); 
     LDAState1();
     };
 
+    
     function LDAState1(){
       pin_program_counter_ep.item(1).set({
                 fill: fiery_red,
@@ -1735,27 +1810,280 @@
             duration: 2000,
             onChange: canvas.renderAll.bind(canvas),
             onComplete: function() {
-              
-          
 
-              // pin_input_mar_CLK.item(1).set({
-              //   fill: indigo,
-              //   fontWeight: '800'
-              // });
 
               group_LDAState1_program_counter_mar.animate('top', '+=133', {
                 duration: 2000,
                 onChange: canvas.renderAll.bind(canvas),
                 onComplete: function() {
 
+                  // state 1
                   group_LDAState1_program_counter_mar.animate('left', 75 + left_margin, {
                     duration: 2000,
                     onChange: canvas.renderAll.bind(canvas),
                     onComplete: function() {
-                      animateBtn.disabled = false;
+
+                      // State 2
+                      setTimeout(function(){  canvas.add(group_LDAState1_PROM); 
+                        setTimeout(function(){  
+                          canvas.add(group_LDAState2_program_counter_mar); 
+                                        pin_program_counter_ep.item(1).set({
+                                          fill: indigo,
+                                          fontWeight: '400'
+                                        });
+
+                                        pin_program_counter_ep.item(0).set({
+                                          fill: indigo,
+                                        });
+
+                                        pin_input_mar_Lm.item(1).set({
+                                          fill: indigo,
+                                          fontWeight: '400'
+                                        });
+
+                                        pin_input_mar_Lm.item(0).set({
+                                          fill: indigo,
+                                        });
+
+                                        pin_program_counter_cp.item(1).set({
+                                          fill: fiery_red,
+                                          fontWeight: '800'
+                                        });
+
+                                        pin_program_counter_cp.item(0).set({
+                                          fill: fiery_red,
+                                        });
+                            
+                              setTimeout(function(){  
+                                //state 3
+                                pin_program_counter_cp.item(1).set({
+                                          fill: indigo,
+                                          fontWeight: '400'
+                                        });
+
+                                        pin_program_counter_cp.item(0).set({
+                                          fill: indigo,
+                                        });
 
 
-                      canvas.add(group_LDAState1_PROM);
+                                        pin_RAM_Er.item(1).set({
+                                          fill: fiery_red,
+                                          fontWeight: '800'
+                                        });
+
+                                        pin_RAM_Er.item(0).set({
+                                          fill: fiery_red,
+                                        });
+
+                                        pin_instruction_regs_Li.item(1).set({
+                                          fill: fiery_red,
+                                          fontWeight: '800'
+                                        });
+
+                                        pin_instruction_regs_Li.item(0).set({
+                                          fill: fiery_red,
+                                        });
+                                        
+
+                                      group_LDAState1_PROM.animate('left', 332 + left_margin, {
+                                      duration: 2000,
+                                      onChange: canvas.renderAll.bind(canvas),
+                                      onComplete: function() {
+
+                                          group_LDAState1_PROM.animate('top', '+=133', {
+                                          duration: 2000,
+                                          onChange: canvas.renderAll.bind(canvas),
+                                          onComplete: function() {
+                                            
+                                                group_LDAState1_PROM.animate('left', 75 + left_margin, {
+                                                duration: 2000,
+                                                onChange: canvas.renderAll.bind(canvas),
+                                                onComplete: function() {
+
+                                                  pin_input_mar_Lm.item(1).set({
+                                                    fill: fiery_red,
+                                                    fontWeight: '800'
+                                                  });
+
+                                                  pin_input_mar_Lm.item(0).set({
+                                                    fill: fiery_red,
+                                                  });
+                                                  
+
+                                                  canvas.add(group_LDAState3_controller);
+                                                  group_LDAState3_controller.animate('top', '+=133', {
+                                                  duration: 2000,
+                                                  onChange: canvas.renderAll.bind(canvas),
+                                                  onComplete: function() {
+
+                                                      //state 4
+                                                      pin_instruction_regs_Li.item(1).set({
+                                                        fill: indigo,
+                                                        fontWeight: '400'
+                                                      });
+
+                                                      pin_instruction_regs_Li.item(0).set({
+                                                        fill: indigo,
+                                                      });
+
+                                                      pin_RAM_Er.item(1).set({
+                                                        fill: indigo,
+                                                        fontWeight: '400'
+                                                      });
+
+                                                      pin_RAM_Er.item(0).set({
+                                                        fill: indigo,
+                                                      });
+
+
+                                                      pin_instruction_regs_Ei.item(1).set({
+                                                        fill: fiery_red,
+                                                        fontWeight: '800'
+                                                      });
+
+                                                      pin_instruction_regs_Ei.item(0).set({
+                                                        fill: fiery_red,
+                                                      });
+                                                      
+                                                      canvas.renderAll();
+
+                                                      canvas.add(group_LDAState4_controller_mar);
+    
+                                                      group_LDAState4_controller_mar.animate('left', 332 + left_margin, {
+                                                      duration: 2000,
+                                                      onChange: canvas.renderAll.bind(canvas),
+                                                      onComplete: function() {
+                                                       
+                                                          group_LDAState4_controller_mar.animate('top', '-=266', {
+                                                          duration: 2000,
+                                                          onChange: canvas.renderAll.bind(canvas),
+                                                          onComplete: function() {
+
+                                                                group_LDAState4_controller_mar.animate('left', 75 + left_margin, {
+                                                                duration: 2000,
+                                                                onChange: canvas.renderAll.bind(canvas),
+                                                                onComplete: function() {
+                                                                  
+                                                                  setTimeout(function(){
+                                                                    
+                                                                      canvas.add(group_LDAState4_PROM);
+                                                                      //state 5
+                                                                      setTimeout(function(){
+
+                                                                        pin_input_mar_Lm.item(1).set({
+                                                                          fill: indigo,
+                                                                          fontWeight: '400'
+                                                                        });
+
+                                                                        pin_input_mar_Lm.item(0).set({
+                                                                          fill: indigo,
+                                                                        });
+                                                                        
+                                                                        pin_instruction_regs_Ei.item(1).set({
+                                                                          fill: indigo,
+                                                                          fontWeight: '400'
+                                                                        });
+
+                                                                        pin_instruction_regs_Ei.item(0).set({
+                                                                          fill: indigo,
+                                                                        });
+                                                                        
+                                                                        pin_RAM_Er.item(1).set({
+                                                                          fill: fiery_red,
+                                                                          fontWeight: '800'
+                                                                        });
+
+                                                                        pin_RAM_Er.item(0).set({
+                                                                          fill: fiery_red,
+                                                                        });
+                                                                        
+                                                                        canvas.renderAll();
+
+                                                                        setTimeout(function(){
+
+                                                                          group_LDAState4_PROM.animate('left', 332 + left_margin, {
+                                                                          duration: 2000,
+                                                                          onChange: canvas.renderAll.bind(canvas),
+                                                                          onComplete: function() {
+                                                                            
+                                                                            group_LDAState4_PROM.animate('top', '-=266', {
+                                                                            duration: 2000,
+                                                                            onChange: canvas.renderAll.bind(canvas),
+                                                                            onComplete: function() {
+                                                                             
+
+                                                                                group_LDAState4_PROM.animate('left', 587+ + left_margin, {
+                                                                                duration: 2000,
+                                                                                onChange: canvas.renderAll.bind(canvas),
+                                                                                onComplete: function() {
+                                                                                  animateBtn.disabled = false;
+
+                                                                                },
+                                                                              
+                                                                                  easing: fabric.util.easeInOutBack
+                                                                                });
+
+                                                                            },
+                                                                          
+                                                                              easing: fabric.util.easeInOutBack
+                                                                            });
+
+                                                                          },
+                                                                        
+                                                                            easing: fabric.util.easeInOutBack
+                                                                          });
+                                                                        }, 1500)
+                                                                      }, 1000)
+                                                                  }, 500);
+
+                                                                },
+                                                              
+                                                                  easing: fabric.util.easeInOutBack
+                                                                });
+
+                                                          },
+                                                        
+                                                            easing: fabric.util.easeInOutBack
+                                                          });
+
+                                                      },
+                                                    
+                                                        easing: fabric.util.easeInOutBack
+                                                      });
+
+                                                  },
+                                                  easing: fabric.util.easeInOutBack
+                                                  });
+
+                                                },
+                                                easing: fabric.util.easeInOutBack
+                                                });
+                                          },
+                                        
+                                            easing: fabric.util.easeInOutBack
+                                          });
+
+                                      },
+                                    
+                                        easing: fabric.util.easeInOutBack
+                                      });
+                                canvas.renderAll();
+                              }, 1500);
+                          }, 1000);
+                      }, 500);
+                     
+                     
+                      group_LDAState1_PROM.animate('left', 75 + left_margin, {
+                      duration: 2000,
+                      onChange: canvas.renderAll.bind(canvas),
+                      onComplete: function() {
+                        animateBtn.disabled = false;
+
+                      },
+                    
+                        easing: fabric.util.easeInOutBack
+                      });
+
 
                     },
                     
