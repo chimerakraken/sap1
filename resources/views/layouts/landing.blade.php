@@ -17,8 +17,47 @@
   <main>
     <div class="w-full" align="center" style="margin-top: 10vh;">
       <div class="grid grid-cols-6 gap-x-6 mx-48">
-        <div class="col-span-2 h-full bg-gray-500 relative">
-          <div class="w-full h-full px-5 py-8 text-center"> <span class=" text-7xl font-semibold text-gray-50">LDA <span id="LDA">14</span></span></div>
+        <div class="col-span-2 h-full relative bg-gray-50">
+          <div class="h-full">
+            <div class="w-full grid grid-cols-2 ">
+              <div class="col-span-2 text-indigo-900 font-semibold">Memory</div>
+              <div class="col-span-1 text-indigo-900 font-semibold">Address</div>
+              <div class="col-span-1 text-indigo-900 font-semibold">Instruction</div>
+              <div class="col-span-1 text-indigo-900 font-semibold">0000</div>
+              <div class="col-span-1 text-indigo-900 font-semibold">
+                 <span class="font-semibold text-indigo-900">LDA <span id="LDA">14</span></span>
+              </div>
+              <div class="col-span-1 text-indigo-900 font-semibold">0001</div>
+              <div class="col-span-1 text-indigo-900 font-semibold"></div>
+              <div class="col-span-1 text-indigo-900 font-semibold">0010</div>
+              <div class="col-span-1 text-indigo-900 font-semibold"></div>
+              <div class="col-span-1 text-indigo-900 font-semibold">0011</div>
+              <div class="col-span-1 text-indigo-900 font-semibold"></div>
+              <div class="col-span-1 text-indigo-900 font-semibold">0100</div>
+              <div class="col-span-1 text-indigo-900 font-semibold"></div>
+              <div class="col-span-1 text-indigo-900 font-semibold">0101</div>
+              <div class="col-span-1 text-indigo-900 font-semibold"></div>
+              <div class="col-span-1 text-indigo-900 font-semibold">0110</div>
+              <div class="col-span-1 text-indigo-900 font-semibold"></div>
+              <div class="col-span-1 text-indigo-900 font-semibold">0111</div>
+              <div class="col-span-1 text-indigo-900 font-semibold"></div>
+              <div class="col-span-1 text-indigo-900 font-semibold">1000</div>
+              <div class="col-span-1 text-indigo-900 font-semibold"></div>
+              <div class="col-span-1 text-indigo-900 font-semibold">1001</div>
+              <div class="col-span-1 text-indigo-900 font-semibold"></div>
+              <div class="col-span-1 text-indigo-900 font-semibold">1010</div>
+              <div class="col-span-1 text-indigo-900 font-semibold"></div>
+              <div class="col-span-1 text-indigo-900 font-semibold">1011</div>
+              <div class="col-span-1 text-indigo-900 font-semibold"></div>
+              <div class="col-span-1 text-indigo-900 font-semibold">1100</div>
+              <div class="col-span-1 text-indigo-900 font-semibold"></div>
+              <div class="col-span-1 text-indigo-900 font-semibold">1101</div>
+              <div class="col-span-1 text-indigo-900 font-semibold"></div>
+              <div class="col-span-1 text-indigo-900 font-semibold">1110</div>
+              <div class="col-span-1 text-indigo-900 font-semibold"></div>
+              <div class="col-span-1 text-indigo-900 font-semibold">1111</div>
+            </div>
+          </div>
           <button id="animate" class="mt-5 font-sans bg-indigo-900 px-4text-indigo-50 rounded-sm w-full absolute left-0 bottom-0 py-9 text-indigo-50 text-2xl">Start</button>
         </div>
         <div class="col-span-4 h-full">
