@@ -1997,6 +1997,15 @@
                                                                           fill: fiery_red,
                                                                         });
                                                                         
+                                                                        pin_accumulator_la.item(1).set({
+                                                                          fill: fiery_red,
+                                                                          fontWeight: '800'
+                                                                        });
+
+                                                                        pin_accumulator_la.item(0).set({
+                                                                          fill: fiery_red,
+                                                                        });
+
                                                                         canvas.renderAll();
 
                                                                         setTimeout(function(){
