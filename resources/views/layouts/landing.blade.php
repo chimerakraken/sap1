@@ -9,6 +9,7 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/460/fabric.min.js" integrity="sha512-ybPp3kCrNQXdvTfh99YLIdnajWnQvHuEKDJ+b26mxI9w+pLhnBo3HmNLJ1pEUBFO1Q0bfJxApeqecNbmaV763g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
   <!-- Styles -->
   <title>Sap1</title>
 </head>
@@ -19,44 +20,44 @@
       <div class="grid grid-cols-6 gap-x-6 mx-48">
         <div class="col-span-2 h-full bg-gray-50">
           <div class=" h-full relative pt-14">
-            <div class="w-full grid grid-cols-2">
+            <div x-data="{ activeMemory : 1}" class="w-full grid grid-cols-2">
               <div class="col-span-2 text-indigo-50 bg-indigo-900 font-semibold h-14 py-3">Memory</div>
               <div class="col-span-1 text-indigo-50 bg-gray-400 font-semibold border">Address</div>
               <div class="col-span-1 text-indigo-50 bg-gray-400 font-semibold border">Instruction</div>
-              <div class="col-span-1 text-red-50 bg-red-700  font-semibold border">0000</div>
-              <div class="col-span-1 text-red-50 bg-red-700  font-semibold border">
+              <div :class="[ activeMemory === 1 ? 'text-red-50 bg-red-700' : 'text-indigo-900 ']" class="col-span-1 font-semibold border">0000</div>
+              <div :class="[ activeMemory === 1 ? 'text-red-50 bg-red-700' : 'text-indigo-900 ']" class="col-span-1 font-semibold border">
                  <span>LDA <span id="LDA">14</span></span>
               </div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border">0001</div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border"></div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border">0010</div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border"></div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border">0011</div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border"></div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border">0100</div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border"></div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border">0101</div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border"></div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border">0110</div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border"></div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border">0111</div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border"></div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border">1000</div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border"></div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border">1001</div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border"></div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border">1010</div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border"></div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border">1011</div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border"></div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border">1100</div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border"></div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border">1101</div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border"></div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border">1110</div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border"></div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border border-b-2">1111</div>
-              <div class="col-span-1 text-indigo-900 font-semibold  border border-b-2"></div>
+              <div :class="[ activeMemory === 2 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0001</div>
+              <div :class="[ activeMemory === 2 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeMemory === 3 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0010</div>
+              <div :class="[ activeMemory === 3 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeMemory === 4 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0011</div>
+              <div :class="[ activeMemory === 4 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeMemory === 5 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0100</div>
+              <div :class="[ activeMemory === 5 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeMemory === 6 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0101</div>
+              <div :class="[ activeMemory === 6 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeMemory === 7 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0110</div>
+              <div :class="[ activeMemory === 7 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeMemory === 8 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0111</div>
+              <div :class="[ activeMemory === 8 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeMemory === 9 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1000</div>
+              <div :class="[ activeMemory === 9 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeMemory === 10 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1001</div>
+              <div :class="[ activeMemory === 10 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeMemory === 11 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1010</div>
+              <div :class="[ activeMemory === 11 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeMemory === 12 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1011</div>
+              <div :class="[ activeMemory === 12 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeMemory === 13 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1100</div>
+              <div :class="[ activeMemory === 13 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeMemory === 14 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1101</div>
+              <div :class="[ activeMemory === 14 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeMemory === 15 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1110</div>
+              <div :class="[ activeMemory === 15 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeMemory === 16 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border border-b-2">1111</div>
+              <div :class="[ activeMemory === 16 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border border-b-2"></div>
             </div>
             <button id="animate" class="mt-5 font-sans bg-indigo-900 px-4  rounded-sm w-full absolute left-0 bottom-15 py-9 text-indigo-50 text-2xl">Start</button>
           </div>
