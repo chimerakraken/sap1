@@ -17,8 +17,8 @@
   <main>
     <div class="w-full" align="center" style="margin-top: 10vh;">
       <div class="grid grid-cols-6 gap-x-6 mx-48">
-        <div class="col-span-2 h-full relative bg-gray-50">
-          <div class="h-full">
+        <div class="col-span-2 h-full bg-gray-50">
+          <div class=" h-full relative pt-14">
             <div class="w-full grid grid-cols-2">
               <div class="col-span-2 text-indigo-50 bg-indigo-900 font-semibold h-14 py-3">Memory</div>
               <div class="col-span-1 text-indigo-50 bg-gray-400 font-semibold border">Address</div>
@@ -58,8 +58,8 @@
               <div class="col-span-1 text-indigo-900 font-semibold  border border-b-2">1111</div>
               <div class="col-span-1 text-indigo-900 font-semibold  border border-b-2"></div>
             </div>
+            <button id="animate" class="mt-5 font-sans bg-indigo-900 px-4  rounded-sm w-full absolute left-0 bottom-15 py-9 text-indigo-50 text-2xl">Start</button>
           </div>
-          <button id="animate" class="mt-5 font-sans bg-indigo-900 px-4text-indigo-50 rounded-sm w-full absolute left-0 bottom-0 py-9 text-indigo-50 text-2xl">Start</button>
         </div>
         <div class="col-span-4 h-full">
           <canvas id="c" width="1000" height="780"></canvas>
