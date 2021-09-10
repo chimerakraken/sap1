@@ -93,7 +93,7 @@ function activeMemory(ActiveInstruction) {
         },
         {
           id: 1,
-          instruction: '',
+          instruction: 'ADD 10',
           address: '0001'
         },
         {
@@ -2117,6 +2117,17 @@ function activeMemory(ActiveInstruction) {
                                                                 onChange: canvas.renderAll.bind(canvas),
                                                                 onComplete: function() {
                                                                   
+
+                                                                  pin_program_counter_cp.item(1).set({
+                                                                          fill: indigo,
+                                                                          fontWeight: '400'
+                                                                        });
+
+                                                                        pin_program_counter_cp.item(0).set({
+                                                                          fill: indigo,
+                                                                        });
+                                                                        
+
                                                                   setTimeout(function(){
                                                                     
                                                                       canvas.add(group_LDAState4_PROM);
@@ -2190,8 +2201,17 @@ function activeMemory(ActiveInstruction) {
                                                                                           fill: indigo,
                                                                                         });
 
-                                                                                        canvas.renderAll();
+                                                                                        pin_accumulator_la.item(1).set({
+                                                                                          fill: indigo,
+                                                                                          fontWeight: '400'
+                                                                                        });
 
+                                                                                        pin_accumulator_la.item(0).set({
+                                                                                          fill: indigo,
+                                                                                        });
+                                                                                        
+                                                                                        canvas.renderAll();
+                                                                                        
                                                                                         setTimeout(function(){
 
                                                                                             pin_input_mar_Lm.item(1).set({
@@ -2212,9 +2232,53 @@ function activeMemory(ActiveInstruction) {
                                                                                               fill: fiery_red,
                                                                                             });
 
+
                                                                                             $("#increment").click();
 
                                                                                             canvas.renderAll();
+                                                                                            
+                                                                                            setTimeout(function(){
+                                                                                              
+                                                                                              if($('.bg-red-700:last').html().split(' ')[0].toString(2) == 'ADD'){
+                                                                                                
+                                                                                                // ADD
+                                                                                                group_LDAState2_program_counter_mar.animate('left', 332 + left_margin, {
+                                                                                                  duration: 2000,
+                                                                                                  onChange: canvas.renderAll.bind(canvas),
+                                                                                                  onComplete: function() {
+                                                                                                  
+                                                                                                    group_LDAState2_program_counter_mar.animate('top', '+=133', {
+                                                                                                    duration: 2000,
+                                                                                                    onChange: canvas.renderAll.bind(canvas),
+                                                                                                    onComplete: function() {
+                                                                                                   
+
+                                                                                                      group_LDAState2_program_counter_mar.animate('left', 75 + left_margin, {
+                                                                                                      duration: 2000,
+                                                                                                      onChange: canvas.renderAll.bind(canvas),
+                                                                                                      onComplete: function() {
+                                                                                                        animateBtn.disabled = false;
+                                                                                                          canvas.remove(group_LDAState4_controller_mar);
+                                                                                                      },
+                                                                                                    
+                                                                                                        easing: fabric.util.easeInOutBack
+                                                                                                      });
+                                                                                               
+
+                                                                                                    },
+                                                                                                  
+                                                                                                      easing: fabric.util.easeInOutBack
+                                                                                                    });
+                                                                                               
+
+                                                                                                  },
+                                                                                                
+                                                                                                    easing: fabric.util.easeInOutBack
+                                                                                                  });
+                                                                                                }
+
+                                                                                            }, 1500)
+                                                                                           
                                                                                             animateBtn.disabled = true;
                                                                                         }, 1000)
                                                                                     }, 500);
