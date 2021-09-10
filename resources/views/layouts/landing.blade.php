@@ -1967,7 +1967,7 @@ function activeMemory(ActiveInstruction) {
                       // State 2
                       setTimeout(function(){  canvas.add(group_LDAState1_PROM); 
                         setTimeout(function(){  
-                          canvas.add(group_LDAState2_program_counter_mar); 
+                          // canvas.add(group_LDAState2_program_counter_mar); 
                                         pin_program_counter_ep.item(1).set({
                                           fill: indigo,
                                           fontWeight: '400'
@@ -1986,14 +1986,14 @@ function activeMemory(ActiveInstruction) {
                                           fill: indigo,
                                         });
 
-                                        pin_program_counter_cp.item(1).set({
-                                          fill: fiery_red,
-                                          fontWeight: '800'
-                                        });
+                                        // pin_program_counter_cp.item(1).set({
+                                        //   fill: fiery_red,
+                                        //   fontWeight: '800'
+                                        // });
 
-                                        pin_program_counter_cp.item(0).set({
-                                          fill: fiery_red,
-                                        });
+                                        // pin_program_counter_cp.item(0).set({
+                                        //   fill: fiery_red,
+                                        // });
                             
                               setTimeout(function(){  
                                 //state 3
@@ -2086,7 +2086,19 @@ function activeMemory(ActiveInstruction) {
                                                         fill: fiery_red,
                                                       });
                                                       
+                                                        pin_program_counter_cp.item(1).set({
+                                                          fill: fiery_red,
+                                                          fontWeight: '800'
+                                                        });
+
+                                                        pin_program_counter_cp.item(0).set({
+                                                          fill: fiery_red,
+                                                        });
+
+
                                                       canvas.renderAll();
+
+                                                      canvas.add(group_LDAState2_program_counter_mar); 
 
                                                       canvas.add(group_LDAState4_controller_mar);
     
