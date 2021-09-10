@@ -20,44 +20,51 @@
       <div class="grid grid-cols-6 gap-x-6 mx-48">
         <div class="col-span-2 h-full bg-gray-50">
           <div class=" h-full relative pt-14">
-            <div x-data="{ activeMemory : 1}" class="w-full grid grid-cols-2">
+            <div x-data="activeMemory(0)" class="w-full grid grid-cols-2">
               <div class="col-span-2 text-indigo-50 bg-indigo-900 font-semibold h-14 py-3">Memory</div>
               <div class="col-span-1 text-indigo-50 bg-gray-400 font-semibold border">Address</div>
               <div class="col-span-1 text-indigo-50 bg-gray-400 font-semibold border">Instruction</div>
-              <div :class="[ activeMemory === 1 ? 'text-red-50 bg-red-700' : 'text-indigo-900 ']" class="col-span-1 font-semibold border">0000</div>
-              <div :class="[ activeMemory === 1 ? 'text-red-50 bg-red-700' : 'text-indigo-900 ']" class="col-span-1 font-semibold border">
+              <template x-for="option in options">
+                <div class=" col-span-2 grid grid-cols-2">
+                <div :class="[ activeInstruction  === option.id ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border" x-text="option.address"></div>
+                <div :class="[ activeInstruction  === option.id ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border" x-text="option.instruction"></div>
+                </div>
+              </template>
+              <!-- <div :class="[ activeInstruction === 1 ? 'text-red-50 bg-red-700' : 'text-indigo-900 ']" class="col-span-1 font-semibold border">0000</div>
+              <div :class="[ activeInstruction === 1 ? 'text-red-50 bg-red-700' : 'text-indigo-900 ']" class="col-span-1 font-semibold border">
                  <span>LDA <span id="LDA">14</span></span>
               </div>
-              <div :class="[ activeMemory === 2 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0001</div>
-              <div :class="[ activeMemory === 2 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeMemory === 3 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0010</div>
-              <div :class="[ activeMemory === 3 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeMemory === 4 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0011</div>
-              <div :class="[ activeMemory === 4 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeMemory === 5 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0100</div>
-              <div :class="[ activeMemory === 5 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeMemory === 6 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0101</div>
-              <div :class="[ activeMemory === 6 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeMemory === 7 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0110</div>
-              <div :class="[ activeMemory === 7 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeMemory === 8 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0111</div>
-              <div :class="[ activeMemory === 8 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeMemory === 9 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1000</div>
-              <div :class="[ activeMemory === 9 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeMemory === 10 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1001</div>
-              <div :class="[ activeMemory === 10 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeMemory === 11 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1010</div>
-              <div :class="[ activeMemory === 11 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeMemory === 12 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1011</div>
-              <div :class="[ activeMemory === 12 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeMemory === 13 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1100</div>
-              <div :class="[ activeMemory === 13 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeMemory === 14 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1101</div>
-              <div :class="[ activeMemory === 14 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeMemory === 15 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1110</div>
-              <div :class="[ activeMemory === 15 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeMemory === 16 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border border-b-2">1111</div>
-              <div :class="[ activeMemory === 16 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border border-b-2"></div>
+              <div :class="[ activeInstruction === 2 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0001</div>
+              <div :class="[ activeInstruction === 2 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeInstruction === 3 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0010</div>
+              <div :class="[ activeInstruction === 3 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeInstruction === 4 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0011</div>
+              <div :class="[ activeInstruction === 4 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeInstruction === 5 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0100</div>
+              <div :class="[ activeInstruction === 5 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeInstruction === 6 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0101</div>
+              <div :class="[ activeInstruction === 6 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeInstruction === 7 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0110</div>
+              <div :class="[ activeInstruction === 7 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeInstruction === 8 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0111</div>
+              <div :class="[ activeInstruction === 8 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeInstruction === 9 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1000</div>
+              <div :class="[ activeInstruction === 9 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeInstruction === 10 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1001</div>
+              <div :class="[ activeInstruction === 10 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeInstruction === 11 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1010</div>
+              <div :class="[ activeInstruction === 11 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeInstruction === 12 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1011</div>
+              <div :class="[ activeInstruction === 12 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeInstruction === 13 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1100</div>
+              <div :class="[ activeInstruction === 13 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeInstruction === 14 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1101</div>
+              <div :class="[ activeInstruction === 14 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeInstruction === 15 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1110</div>
+              <div :class="[ activeInstruction === 15 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
+              <div :class="[ activeInstruction === 16 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border border-b-2">1111</div>
+              <div :class="[ activeInstruction === 16 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border border-b-2"></div> -->
+              <button id="increment" class="hidden " x-on:click="increment()">asd</button>
             </div>
             <button id="animate" class="mt-5 font-sans bg-indigo-900 px-4  rounded-sm w-full absolute left-0 bottom-15 py-9 text-indigo-50 text-2xl">Start</button>
           </div>
@@ -71,6 +78,99 @@
 </body>
 
 <script>
+
+function activeMemory(ActiveInstruction) {
+      return {
+        activeInstruction: ActiveInstruction,
+        increment() {
+         this.activeInstruction++;
+        },
+        options: [
+        {
+          id: 0,
+          instruction: 'LDA 14',
+          address: '0000'
+        },
+        {
+          id: 1,
+          instruction: '',
+          address: '0001'
+        },
+        {
+          id: 2,
+          instruction: '',
+          address: '0010'
+        },
+        {
+          id: 3,
+          instruction: '',
+          address: '0011'
+        },
+        {
+          id: 4,
+          instruction: '',
+          address: '0100'
+        },
+        {
+          id: 5,
+          instruction: '',
+          address: '0101'
+        },
+        {
+          id: 6,
+          instruction: '',
+          address: '0110'
+        },
+        {
+          id: 7,
+          instruction: '',
+          address: '0111'
+        },
+        {
+          id: 8,
+          instruction: '',
+          address: '1000'
+        },
+        {
+          id: 9,
+          instruction: '',
+          address: '1001'
+        },
+        {
+          id: 10,
+          instruction: '',
+          address: '1010'
+        },
+        {
+          id: 11,
+          instruction: '',
+          address: '1011'
+        },
+        {
+          id: 12,
+          instruction: '',
+          address: '1100'
+        },
+        {
+          id: 13,
+          instruction: '',
+          address: '1101'
+        },
+        {
+          id: 14,
+          instruction: '',
+          address: '1110'
+        },
+        {
+          id: 15,
+          instruction: '',
+          address: '1111'
+        },
+      ],
+        
+      };
+    }
+    
   $(document).ready(function(){
 
     $(document).on('keypress',function(e) {
@@ -1734,7 +1834,7 @@
       width: 100,
       height: 20
     }), 
-    new fabric.Text('0000' + ' ' + parseInt( $('#LDA').html()).toString(2), {
+    new fabric.Text('0000' + ' ' + parseInt($('.bg-red-700:last').html().split(' ')[1]).toString(2), {
       fontSize: 16,
       fill: 'white',
       originX: 'center',
@@ -1807,7 +1907,7 @@
       width: 100,
       height: 20
     }), 
-    new fabric.Text( parseInt( $('#LDA').html()).toString(2), {
+    new fabric.Text( parseInt($('.bg-red-700:last').html().split(' ')[1]).toString(2), {
       fontSize: 16,
       fill: 'white',
       originX: 'center',
@@ -2067,7 +2167,45 @@
                                                                                 onChange: canvas.renderAll.bind(canvas),
                                                                                 onComplete: function() {
                                                                                   animateBtn.disabled = false;
+                                                                               
+                                                                                    setTimeout(function(){
+                                                                                      pin_RAM_Er.item(1).set({
+                                                                                          fill: indigo,
+                                                                                          fontWeight: '400'
+                                                                                        });
 
+                                                                                        pin_RAM_Er.item(0).set({
+                                                                                          fill: indigo,
+                                                                                        });
+
+                                                                                        canvas.renderAll();
+
+                                                                                        setTimeout(function(){
+
+                                                                                            pin_input_mar_Lm.item(1).set({
+                                                                                              fill: fiery_red,
+                                                                                              fontWeight: '800'
+                                                                                            });
+
+                                                                                            pin_input_mar_Lm.item(0).set({
+                                                                                              fill: fiery_red,
+                                                                                            });
+                                                                                            
+                                                                                            pin_program_counter_ep.item(1).set({
+                                                                                              fill: fiery_red,
+                                                                                              fontWeight: '800'
+                                                                                            });
+
+                                                                                            pin_program_counter_ep.item(0).set({
+                                                                                              fill: fiery_red,
+                                                                                            });
+
+                                                                                            $("#increment").click();
+
+                                                                                            canvas.renderAll();
+
+                                                                                        }, 1000)
+                                                                                    }, 500);
                                                                                 },
                                                                               
                                                                                   easing: fabric.util.easeInOutBack
