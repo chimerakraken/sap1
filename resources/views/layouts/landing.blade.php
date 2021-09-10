@@ -2166,7 +2166,7 @@ function activeMemory(ActiveInstruction) {
                                                                                 duration: 2000,
                                                                                 onChange: canvas.renderAll.bind(canvas),
                                                                                 onComplete: function() {
-                                                                                  animateBtn.disabled = false;
+                                                                                
                                                                                
                                                                                     setTimeout(function(){
                                                                                       pin_RAM_Er.item(1).set({
@@ -2203,7 +2203,7 @@ function activeMemory(ActiveInstruction) {
                                                                                             $("#increment").click();
 
                                                                                             canvas.renderAll();
-
+                                                                                            animateBtn.disabled = true;
                                                                                         }, 1000)
                                                                                     }, 500);
                                                                                 },
