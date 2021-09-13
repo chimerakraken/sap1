@@ -1925,7 +1925,17 @@ function activeMemory(ActiveInstruction) {
     LDAState1();
     };
 
-    
+    var FlagProgramCounter;
+    var FlagMAR;
+    var FlagPROM;
+    var FlagInstructionRegister;
+    var FlagControlUnit;
+    var FlagARegister;
+    var FlagALU;
+    var FlagBRegister;
+    var FlagOuputRegister;
+    var FlagBinaryDisplay;
+
     function LDAState1(){
       pin_program_counter_ep.item(1).set({
                 fill: fiery_red,
@@ -1952,7 +1962,7 @@ function activeMemory(ActiveInstruction) {
             onChange: canvas.renderAll.bind(canvas),
             onComplete: function() {
 
-
+              
               group_LDAState1_program_counter_mar.animate('top', '+=133', {
                 duration: 2000,
                 onChange: canvas.renderAll.bind(canvas),
@@ -1965,7 +1975,10 @@ function activeMemory(ActiveInstruction) {
                     onComplete: function() {
 
                       // State 2
+
+                      FlagMAR = group_LDAState1_program_counter_mar;
                       setTimeout(function(){  canvas.add(group_LDAState1_PROM); 
+                        
                         setTimeout(function(){  
                           // canvas.add(group_LDAState2_program_counter_mar); 
                                         pin_program_counter_ep.item(1).set({
@@ -2041,6 +2054,8 @@ function activeMemory(ActiveInstruction) {
                                                 onChange: canvas.renderAll.bind(canvas),
                                                 onComplete: function() {
 
+                                                  FlagInstructionRegister = group_LDAState1_PROM;
+
                                                   pin_input_mar_Lm.item(1).set({
                                                     fill: fiery_red,
                                                     fontWeight: '800'
@@ -2052,11 +2067,14 @@ function activeMemory(ActiveInstruction) {
                                                   
 
                                                   canvas.add(group_LDAState3_controller);
+
+                                                  
                                                   group_LDAState3_controller.animate('top', '+=133', {
                                                   duration: 2000,
                                                   onChange: canvas.renderAll.bind(canvas),
                                                   onComplete: function() {
 
+                                                      FlagControlUnit = group_LDAState3_controller;
                                                       //state 4
                                                       pin_instruction_regs_Li.item(1).set({
                                                         fill: indigo,
@@ -2099,7 +2117,7 @@ function activeMemory(ActiveInstruction) {
                                                       canvas.renderAll();
 
                                                       canvas.add(group_LDAState2_program_counter_mar); 
-
+                                                      FlagProgramCounter = group_LDAState2_program_counter_mar;
                                                       canvas.add(group_LDAState4_controller_mar);
     
                                                       group_LDAState4_controller_mar.animate('left', 332 + left_margin, {
@@ -2117,6 +2135,7 @@ function activeMemory(ActiveInstruction) {
                                                                 onChange: canvas.renderAll.bind(canvas),
                                                                 onComplete: function() {
                                                                   
+                                                                  FlagMAR = group_LDAState4_controller_mar;
 
                                                                   pin_program_counter_cp.item(1).set({
                                                                           fill: indigo,
@@ -2131,6 +2150,8 @@ function activeMemory(ActiveInstruction) {
                                                                   setTimeout(function(){
                                                                     
                                                                       canvas.add(group_LDAState4_PROM);
+
+                                                                      FlagPROM = group_LDAState4_PROM;
                                                                       //state 5
                                                                       setTimeout(function(){
 
@@ -2190,7 +2211,8 @@ function activeMemory(ActiveInstruction) {
                                                                                 onChange: canvas.renderAll.bind(canvas),
                                                                                 onComplete: function() {
                                                                                 
-                                                                               
+                                                                                    FlagARegister = group_LDAState4_PROM;
+
                                                                                     setTimeout(function(){
                                                                                       pin_RAM_Er.item(1).set({
                                                                                           fill: indigo,
@@ -2238,44 +2260,8 @@ function activeMemory(ActiveInstruction) {
                                                                                             canvas.renderAll();
                                                                                             
                                                                                             setTimeout(function(){
-                                                                                              
-                                                                                              if($('.bg-red-700:last').html().split(' ')[0].toString(2) == 'ADD'){
-                                                                                                
-                                                                                                // ADD
-                                                                                                group_LDAState2_program_counter_mar.animate('left', 332 + left_margin, {
-                                                                                                  duration: 2000,
-                                                                                                  onChange: canvas.renderAll.bind(canvas),
-                                                                                                  onComplete: function() {
-                                                                                                  
-                                                                                                    group_LDAState2_program_counter_mar.animate('top', '+=133', {
-                                                                                                    duration: 2000,
-                                                                                                    onChange: canvas.renderAll.bind(canvas),
-                                                                                                    onComplete: function() {
-                                                                                                   
-
-                                                                                                      group_LDAState2_program_counter_mar.animate('left', 75 + left_margin, {
-                                                                                                      duration: 2000,
-                                                                                                      onChange: canvas.renderAll.bind(canvas),
-                                                                                                      onComplete: function() {
-                                                                                                        animateBtn.disabled = false;
-                                                                                                          canvas.remove(group_LDAState4_controller_mar);
-                                                                                                      },
-                                                                                                    
-                                                                                                        easing: fabric.util.easeInOutBack
-                                                                                                      });
-                                                                                               
-
-                                                                                                    },
-                                                                                                  
-                                                                                                      easing: fabric.util.easeInOutBack
-                                                                                                    });
-                                                                                               
-
-                                                                                                  },
-                                                                                                
-                                                                                                    easing: fabric.util.easeInOutBack
-                                                                                                  });
-                                                                                                }
+                                                                                             
+                                                                                              NextProcess();
 
                                                                                             }, 1500)
                                                                                            
@@ -2362,7 +2348,315 @@ function activeMemory(ActiveInstruction) {
 
     }
 
+    var program_counter = 1;
+    function NextProcess(){
+        // ADD
+        program_counter = program_counter + 1;
+        if($('.bg-red-700:last').html().split(' ')[0].toString(2) == 'ADD'){
+                                                                                                
+          FlagProgramCounter.animate('left', 332 + left_margin, {
+                      duration: 2000,
+                      onChange: canvas.renderAll.bind(canvas),
+                      onComplete: function() {
+                                                                                                  
+                      FlagProgramCounter.animate('top', '+=133', {
+                      duration: 2000,
+                      onChange: canvas.renderAll.bind(canvas),
+                      onComplete: function() {
+                                                                                                   
+                      FlagProgramCounter.animate('left', 75 + left_margin, {
+                      duration: 2000,
+                      onChange: canvas.renderAll.bind(canvas),
+                      onComplete: function() {
+                      animateBtn.disabled = false;
+                      FlagMAR = FlagProgramCounter;
+                      canvas.remove(group_LDAState4_controller_mar);
 
+                      var temp = new fabric.Group([ new fabric.Rect({
+                      fill: indigo,
+                      originX: 'center',
+                      originY: 'center',
+                      width: 100,
+                      height: 20
+                      }), 
+                      new fabric.Text( $('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').html().split(' ')[1]).toString(2), {
+                        fontSize: 16,
+                        fill: 'white',
+                        originX: 'center',
+                        originY: 'center'
+                      }) ], {
+                        left: 75 + left_margin,
+                        top: 341,
+                        selectable: false
+                      });
+
+                      pin_input_mar_Lm.item(1).set({
+                        fill: indigo,
+                        fontWeight: '400'
+                        })
+                      
+                        pin_input_mar_Lm.item(0).set({
+                        fill: indigo,
+                        });
+
+
+                      canvas.add(temp);
+                      canvas.renderAll();
+
+                      FlagRam = temp;
+
+                      setTimeout(function(){
+                        
+                        pin_program_counter_ep.item(1).set({
+                        fill: indigo,
+                        fontWeight: '400'
+                        })
+                      
+                        pin_program_counter_ep.item(0).set({
+                        fill: indigo,
+                        });
+
+                        pin_RAM_Er.item(1).set({
+                        fill: fiery_red,
+                        fontWeight: '800'
+                        })
+                      
+                        pin_RAM_Er.item(0).set({
+                        fill: fiery_red,
+                        });
+
+                        pin_instruction_regs_Li.item(1).set({
+                        fill: fiery_red,
+                        fontWeight: '800'
+                        })
+                      
+                        pin_instruction_regs_Li.item(0).set({
+                        fill: fiery_red,
+                        });
+
+                        setTimeout(function(){
+                           
+                          FlagRam.animate('left', 332 + left_margin, {
+                          duration: 2000,
+                          onChange: canvas.renderAll.bind(canvas),
+                          onComplete: function() {
+                                
+                              FlagRam.animate('top', '+=133', {
+                              duration: 2000,
+                              onChange: canvas.renderAll.bind(canvas),
+                              onComplete: function() {
+
+                                FlagRam.animate('left', 75 + left_margin, {
+                                duration: 2000,
+                                onChange: canvas.renderAll.bind(canvas),
+                                onComplete: function() {
+                                    FlagInstructionRegister = FlagRam;
+
+                                    var temp = new fabric.Group([ new fabric.Rect({
+                                      fill: indigo,
+                                      originX: 'center',
+                                      originY: 'center',
+                                      width: 100,
+                                      height: 20
+                                    }), 
+                                    new fabric.Text($('.bg-red-700:first').html().toString(), {
+                                      fontSize: 16,
+                                      fill: 'white',
+                                      originX: 'center',
+                                      originY: 'center'
+                                    }) ], {
+                                      left: 75 + left_margin,
+                                      top: 474,
+                                      selectable: false
+                                    });
+                                  
+                                    canvas.add(temp);
+                                    temp.animate('top', '+=133', {
+                                    duration: 2000,
+                                    onChange: canvas.renderAll.bind(canvas),
+                                    onComplete: function() {
+                                      canvas.remove(FlagControlUnit);
+                                      FlagControlUnit = temp;
+
+                                      setTimeout(function(){
+                                        var temp = new fabric.Group([ new fabric.Rect({
+                                          fill: indigo,
+                                          originX: 'center',
+                                          originY: 'center',
+                                          width: 100,
+                                          height: 20
+                                        }), 
+                                        new fabric.Text( parseInt(program_counter).toString(2) , {
+                                          fontSize: 16,
+                                          fill: 'white',
+                                          originX: 'center',
+                                          originY: 'center'
+                                        }) ], {
+                                          left: 75 + left_margin,
+                                          top: 75,
+                                          selectable: false
+                                        });
+
+                                        canvas.add(temp);
+                                        FlagProgramCounter = temp;
+
+                                        
+                                        pin_program_counter_cp.item(1).set({
+                                        fill: fiery_red,
+                                        fontWeight: '800'
+                                        })
+                                      
+                                        pin_program_counter_cp.item(0).set({
+                                        fill: fiery_red,
+                                        });
+
+                                        pin_RAM_Er.item(1).set({
+                                        fill: indigo,
+                                        fontWeight: '400'
+                                        })
+                                      
+                                        pin_RAM_Er.item(0).set({
+                                        fill: indigo,
+                                        });
+                                        
+                                        pin_instruction_regs_Li.item(1).set({
+                                        fill: indigo,
+                                        fontWeight: '400'
+                                        })
+                                      
+                                        pin_instruction_regs_Li.item(0).set({
+                                        fill: indigo,
+                                        });
+
+                                      
+
+                                        setTimeout(function(){
+                                          pin_instruction_regs_Ei.item(1).set({
+                                          fill: fiery_red,
+                                          fontWeight: '800'
+                                          })
+                                        
+                                          pin_instruction_regs_Ei.item(0).set({
+                                          fill: fiery_red,
+                                          });
+
+                                          pin_input_mar_Lm.item(1).set({
+                                          fill: fiery_red,
+                                          fontWeight: '800'
+                                          })
+                                        
+                                          pin_input_mar_Lm.item(0).set({
+                                          fill: fiery_red,
+                                          });
+
+                                          canvas.renderAll();
+
+                                          setTimeout(function(){
+
+                                          var temp = new fabric.Group([ new fabric.Rect({
+                                            fill: indigo,
+                                            originX: 'center',
+                                            originY: 'center',
+                                            width: 100,
+                                            height: 20
+                                          }), 
+                                          new fabric.Text( parseInt($('.bg-red-700:last').html().split(' ')[1]).toString(2), {
+                                            fontSize: 16,
+                                            fill: 'white',
+                                            originX: 'center',
+                                            originY: 'center'
+                                          }) ], {
+                                            left: 75 + left_margin,
+                                            top: 474,
+                                            selectable: false
+                                          });
+                                           
+                                          canvas.add(temp);
+
+                                          temp.animate('left', 332 + left_margin, {
+                                          duration: 2000,
+                                          onChange: canvas.renderAll.bind(canvas),
+                                          onComplete: function() {
+                                            animateBtn.disabled = false;
+
+                                            temp.animate('top', "-=266", {
+                                            duration: 2000,
+                                            onChange: canvas.renderAll.bind(canvas),
+                                            onComplete: function() {
+
+                                                temp.animate('left', 75 + left_margin, {
+                                                duration: 2000,
+                                                onChange: canvas.renderAll.bind(canvas),
+                                                onComplete: function() {
+                                                  canvas.remove(FlagMAR);
+                                                  FlagMAR = temp;
+
+                                                    pin_program_counter_cp.item(1).set({
+                                                    fill: indigo,
+                                                    fontWeight: '400'
+                                                    })
+                                                  
+                                                    pin_program_counter_cp.item(0).set({
+                                                    fill: indigo,
+                                                    });
+                                                },
+                                              
+                                                  easing: fabric.util.easeInOutBack
+                                                });
+                                            },
+                                          
+                                              easing: fabric.util.easeInOutBack
+                                            });
+
+
+                                          },
+                                        
+                                            easing: fabric.util.easeInOutBack
+                                          });
+
+                                          }, 1000)
+
+                                        }, 500)
+
+                                      })                                    
+                                    },
+                                  
+                                      easing: fabric.util.easeInOutBack
+                                    });
+                                },
+                              
+                                  easing: fabric.util.easeInOutBack
+                                });
+                                
+                              },
+                            
+                                easing: fabric.util.easeInOutBack
+                              });
+
+                          },
+                        
+                            easing: fabric.util.easeInOutBack
+                          });
+                        }, 1000)
+                      }, 500)
+                  },
+                                                                                                    
+                easing: fabric.util.easeInOutBack
+              });
+                                                                                               
+
+            },
+                                                                                                  
+          easing: fabric.util.easeInOutBack
+        });
+                                                                                               
+
+        },
+                                                                                                
+        easing: fabric.util.easeInOutBack
+      });                                                                                                  
+        }
+    }
   });
  
 
