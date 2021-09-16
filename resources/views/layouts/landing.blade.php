@@ -26,44 +26,10 @@
               <div class="col-span-1 text-indigo-50 bg-gray-400 font-semibold border">Instruction</div>
               <template x-for="option in options">
                 <div class=" col-span-2 grid grid-cols-2">
-                <div :class="[ activeInstruction  === option.id ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border" x-text="option.address"></div>
-                <div :class="[ activeInstruction  === option.id ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border" x-text="option.instruction"></div>
+                <div :id="option.id" :class="[ activeInstruction  === option.id ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border" x-text="option.address"></div>
+                <div :id="option.id" :class="[ activeInstruction  === option.id ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border" x-text="option.instruction"></div>
                 </div>
               </template>
-              <!-- <div :class="[ activeInstruction === 1 ? 'text-red-50 bg-red-700' : 'text-indigo-900 ']" class="col-span-1 font-semibold border">0000</div>
-              <div :class="[ activeInstruction === 1 ? 'text-red-50 bg-red-700' : 'text-indigo-900 ']" class="col-span-1 font-semibold border">
-                 <span>LDA <span id="LDA">14</span></span>
-              </div>
-              <div :class="[ activeInstruction === 2 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0001</div>
-              <div :class="[ activeInstruction === 2 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeInstruction === 3 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0010</div>
-              <div :class="[ activeInstruction === 3 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeInstruction === 4 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0011</div>
-              <div :class="[ activeInstruction === 4 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeInstruction === 5 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0100</div>
-              <div :class="[ activeInstruction === 5 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeInstruction === 6 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0101</div>
-              <div :class="[ activeInstruction === 6 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeInstruction === 7 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0110</div>
-              <div :class="[ activeInstruction === 7 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeInstruction === 8 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">0111</div>
-              <div :class="[ activeInstruction === 8 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeInstruction === 9 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1000</div>
-              <div :class="[ activeInstruction === 9 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeInstruction === 10 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1001</div>
-              <div :class="[ activeInstruction === 10 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeInstruction === 11 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1010</div>
-              <div :class="[ activeInstruction === 11 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeInstruction === 12 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1011</div>
-              <div :class="[ activeInstruction === 12 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeInstruction === 13 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1100</div>
-              <div :class="[ activeInstruction === 13 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeInstruction === 14 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1101</div>
-              <div :class="[ activeInstruction === 14 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeInstruction === 15 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border">1110</div>
-              <div :class="[ activeInstruction === 15 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border"></div>
-              <div :class="[ activeInstruction === 16 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border border-b-2">1111</div>
-              <div :class="[ activeInstruction === 16 ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class="col-span-1 font-semibold  border border-b-2"></div> -->
               <button id="increment" class="hidden " x-on:click="increment()">asd</button>
             </div>
             <button id="animate" class="mt-5 font-sans bg-indigo-900 px-4  rounded-sm w-full absolute left-0 bottom-15 py-9 text-indigo-50 text-2xl">Start</button>
@@ -103,12 +69,12 @@ function activeMemory(ActiveInstruction) {
         },
         {
           id: 3,
-          instruction: '',
+          instruction: 'OUT',
           address: '0011'
         },
         {
           id: 4,
-          instruction: '',
+          instruction: 'HLT',
           address: '0100'
         },
         {
@@ -3233,6 +3199,15 @@ function activeMemory(ActiveInstruction) {
                                                                   pin_adder_substractor_eu.item(0).set({
                                                                   fill: fiery_red,
                                                                   });
+
+                                                                  pin_adder_substractor_su.item(1).set({
+                                                                  fill: fiery_red,
+                                                                  fontWeight: '800'
+                                                                  })
+                                                                
+                                                                  pin_adder_substractor_su.item(0).set({
+                                                                  fill: fiery_red,
+                                                                  });
                                                                   
                                                                   pin_RAM_Er.item(1).set({
                                                                   fill: indigo,
@@ -3307,6 +3282,15 @@ function activeMemory(ActiveInstruction) {
                                                                                 })
                                                                               
                                                                                 pin_adder_substractor_eu.item(0).set({
+                                                                                fill: indigo,
+                                                                                });
+
+                                                                                pin_adder_substractor_su.item(1).set({
+                                                                                fill: indigo,
+                                                                                fontWeight: '400'
+                                                                                })
+                                                                              
+                                                                                pin_adder_substractor_su.item(0).set({
                                                                                 fill: indigo,
                                                                                 });
 
@@ -3400,8 +3384,638 @@ function activeMemory(ActiveInstruction) {
           
         }
 
+        if($('.bg-red-700:last').html().split(' ')[0].toString(2) == 'OUT'){
+          
+          pin_input_mar_Lm.item(1).set({
+            fill: fiery_red,
+            fontWeight: '800'
+          });
+          
+          pin_input_mar_Lm.item(0).set({
+            fill: fiery_red,
+          });
+          
+          pin_program_counter_ep.item(1).set({
+            fill: fiery_red,
+            fontWeight: '800'
+          });
+          
+          pin_program_counter_ep.item(0).set({
+            fill: fiery_red,
+          });
+
+                                                                                            
+          FlagProgramCounter.animate('left', 332 + left_margin, {
+                      duration: 2000,
+                      onChange: canvas.renderAll.bind(canvas),
+                      onComplete: function() {
+                                                                                                  
+                      FlagProgramCounter.animate('top', '+=133', {
+                      duration: 2000,
+                      onChange: canvas.renderAll.bind(canvas),
+                      onComplete: function() {
+                                                                                                   
+                      FlagProgramCounter.animate('left', 75 + left_margin, {
+                      duration: 2000,
+                      onChange: canvas.renderAll.bind(canvas),
+                      onComplete: function() {
+                      animateBtn.disabled = false;
+                      FlagMAR = FlagProgramCounter;
+                      canvas.remove(group_LDAState4_controller_mar);
+
+                      var temp = new fabric.Group([ new fabric.Rect({
+                      fill: indigo,
+                      originX: 'center',
+                      originY: 'center',
+                      width: 100,
+                      height: 20
+                      }), 
+                      new fabric.Text( $('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').html().split(' ')[1]).toString(2), {
+                        fontSize: 16,
+                        fill: 'white',
+                        originX: 'center',
+                        originY: 'center'
+                      }) ], {
+                        left: 75 + left_margin,
+                        top: 341,
+                        selectable: false
+                      });
+
+                      pin_input_mar_Lm.item(1).set({
+                        fill: indigo,
+                        fontWeight: '400'
+                        })
+                      
+                        pin_input_mar_Lm.item(0).set({
+                        fill: indigo,
+                        });
+
+
+                      canvas.add(temp);
+                      canvas.renderAll();
+
+                      FlagRam = temp;
+
+                      setTimeout(function(){
+                        
+                        pin_program_counter_ep.item(1).set({
+                        fill: indigo,
+                        fontWeight: '400'
+                        })
+                      
+                        pin_program_counter_ep.item(0).set({
+                        fill: indigo,
+                        });
+
+                        pin_RAM_Er.item(1).set({
+                        fill: fiery_red,
+                        fontWeight: '800'
+                        })
+                      
+                        pin_RAM_Er.item(0).set({
+                        fill: fiery_red,
+                        });
+
+                        pin_instruction_regs_Li.item(1).set({
+                        fill: fiery_red,
+                        fontWeight: '800'
+                        })
+                      
+                        pin_instruction_regs_Li.item(0).set({
+                        fill: fiery_red,
+                        });
+
+                        setTimeout(function(){
+                           
+                          FlagRam.animate('left', 332 + left_margin, {
+                          duration: 2000,
+                          onChange: canvas.renderAll.bind(canvas),
+                          onComplete: function() {
+                                
+                              FlagRam.animate('top', '+=133', {
+                              duration: 2000,
+                              onChange: canvas.renderAll.bind(canvas),
+                              onComplete: function() {
+
+                                FlagRam.animate('left', 75 + left_margin, {
+                                duration: 2000,
+                                onChange: canvas.renderAll.bind(canvas),
+                                onComplete: function() {
+                                    FlagInstructionRegister = FlagRam;
+
+                                    var temp = new fabric.Group([ new fabric.Rect({
+                                      fill: indigo,
+                                      originX: 'center',
+                                      originY: 'center',
+                                      width: 100,
+                                      height: 20
+                                    }), 
+                                    new fabric.Text($('.bg-red-700:first').html().toString(), {
+                                      fontSize: 16,
+                                      fill: 'white',
+                                      originX: 'center',
+                                      originY: 'center'
+                                    }) ], {
+                                      left: 75 + left_margin,
+                                      top: 474,
+                                      selectable: false
+                                    });
+                                  
+                                    canvas.add(temp);
+                                    temp.animate('top', '+=133', {
+                                    duration: 2000,
+                                    onChange: canvas.renderAll.bind(canvas),
+                                    onComplete: function() {
+                                      canvas.remove(FlagControlUnit);
+                                      FlagControlUnit = temp;
+
+                                      setTimeout(function(){
+                                        var temp = new fabric.Group([ new fabric.Rect({
+                                          fill: indigo,
+                                          originX: 'center',
+                                          originY: 'center',
+                                          width: 100,
+                                          height: 20
+                                        }), 
+                                        new fabric.Text( parseInt(program_counter).toString(2) , {
+                                          fontSize: 16,
+                                          fill: 'white',
+                                          originX: 'center',
+                                          originY: 'center'
+                                        }) ], {
+                                          left: 75 + left_margin,
+                                          top: 75,
+                                          selectable: false
+                                        });
+
+                                        canvas.add(temp);
+                                        FlagProgramCounter = temp;
+
+                                        
+                                        pin_program_counter_cp.item(1).set({
+                                        fill: fiery_red,
+                                        fontWeight: '800'
+                                        })
+                                      
+                                        pin_program_counter_cp.item(0).set({
+                                        fill: fiery_red,
+                                        });
+
+                                        pin_RAM_Er.item(1).set({
+                                        fill: indigo,
+                                        fontWeight: '400'
+                                        })
+                                      
+                                        pin_RAM_Er.item(0).set({
+                                        fill: indigo,
+                                        });
+                                        
+                                        pin_instruction_regs_Li.item(1).set({
+                                        fill: indigo,
+                                        fontWeight: '400'
+                                        })
+                                      
+                                        pin_instruction_regs_Li.item(0).set({
+                                        fill: indigo,
+                                        });
+
+                                        setTimeout(function(){
+                                          
+                                              
+                                        pin_accumulator_ea.item(1).set({
+                                        fill: fiery_red,
+                                        fontWeight: '800'
+                                        })
+                                      
+                                        pin_accumulator_ea.item(0).set({
+                                        fill: fiery_red,
+                                        });
+
+                                                
+                                        pin_output_regs_Lo.item(1).set({
+                                        fill: fiery_red,
+                                        fontWeight: '800'
+                                        })
+                                      
+                                        pin_output_regs_Lo.item(0).set({
+                                        fill: fiery_red,
+                                        });
+
+
+                                          FlagARegister.animate('left', 332 + left_margin, {
+                                          duration: 2000,
+                                          onChange: canvas.renderAll.bind(canvas),
+                                          onComplete: function() {
+
+                                            FlagARegister.animate('top', "+=399", {
+                                            duration: 2000,
+                                            onChange: canvas.renderAll.bind(canvas),
+                                            onComplete: function() {
+
+                                              FlagARegister.animate('left', 587 + left_margin, {
+                                              duration: 2000,
+                                              onChange: canvas.renderAll.bind(canvas),
+                                              onComplete: function() {
+
+                                                  FlagOuputRegister = FlagARegister;
+                                                  setTimeout(function(){
+
+                                                    var temp = new fabric.Group([ new fabric.Rect({
+                                                      fill: indigo,
+                                                      originX: 'center',
+                                                      originY: 'center',
+                                                      width: 100,
+                                                      height: 20
+                                                    }), 
+                                                    new fabric.Text(parseInt((FlagOuputRegister.item(1).get('text')), 2).toString(), {
+                                                      fontSize: 16,
+                                                      fill: 'white',
+                                                      originX: 'center',
+                                                      originY: 'center'
+                                                    }) ], {
+                                                      left: 585 + left_margin,
+                                                      top: 610,
+                                                      selectable: false
+                                                    });
+
+                                                    canvas.add(temp);
+                                                    
+                                                    FlagBinaryDisplay = temp;
+
+                                                    canvas.renderAll();
+                                                    setTimeout(function(){
+                                                         
+                                                        $("#increment").click();
+
+                                                        canvas.renderAll();
+
+                                                        setTimeout(function(){
+
+                                                          pin_program_counter_cp.item(1).set({
+                                                          fill: indigo,
+                                                          fontWeight: '400'
+                                                          })
+
+                                                          pin_program_counter_cp.item(0).set({
+                                                          fill: indigo,
+                                                          });
+
+                                                          pin_accumulator_ea.item(1).set({
+                                                          fill: indigo,
+                                                          fontWeight: '400'
+                                                          })
+
+                                                          pin_accumulator_ea.item(0).set({
+                                                          fill: indigo,
+                                                          });
+
+                                                          pin_output_regs_Lo.item(1).set({
+                                                          fill: indigo,
+                                                          fontWeight: '400'
+                                                          })
+
+                                                          pin_output_regs_Lo.item(0).set({
+                                                          fill: indigo,
+                                                          });
+
+                                                          NextProcess();
+
+                                                        }, 500)
+                                                    }, 1000)
+                                                  }, 500)
+                                              },
+                                            
+                                                easing: fabric.util.easeInOutBack
+                                              });
+
+                                              
+                                            },
+                                          
+                                              easing: fabric.util.easeInOutBack
+                                            });
+
+                                            
+                                          },
+                                        
+                                            easing: fabric.util.easeInOutBack
+                                          });
+
+                                        }, 500)
+
+                                    
+                                      })                                    
+                                    },
+                                  
+                                      easing: fabric.util.easeInOutBack
+                                    });
+                                },
+                              
+                                  easing: fabric.util.easeInOutBack
+                                });
+                                
+                              },
+                            
+                                easing: fabric.util.easeInOutBack
+                              });
+
+                          },
+                        
+                            easing: fabric.util.easeInOutBack
+                          });
+                        }, 1000)
+                      }, 500)
+                  },
+                                                                                                    
+                easing: fabric.util.easeInOutBack
+              });
+                                                                                               
+
+            },
+                                                                                                  
+              easing: fabric.util.easeInOutBack
+            });
+                                                                                                  
+
+            },
+                                                                                                    
+            easing: fabric.util.easeInOutBack
+          });         
+          
+        }
+
+        if($('.bg-red-700:last').html().split(' ')[0].toString(2) == 'HLT'){
+          
+          pin_input_mar_Lm.item(1).set({
+            fill: fiery_red,
+            fontWeight: '800'
+          });
+          
+          pin_input_mar_Lm.item(0).set({
+            fill: fiery_red,
+          });
+          
+          pin_program_counter_ep.item(1).set({
+            fill: fiery_red,
+            fontWeight: '800'
+          });
+          
+          pin_program_counter_ep.item(0).set({
+            fill: fiery_red,
+          });
+
+                                                                                            
+          FlagProgramCounter.animate('left', 332 + left_margin, {
+                      duration: 2000,
+                      onChange: canvas.renderAll.bind(canvas),
+                      onComplete: function() {
+                                                                                                  
+                      FlagProgramCounter.animate('top', '+=133', {
+                      duration: 2000,
+                      onChange: canvas.renderAll.bind(canvas),
+                      onComplete: function() {
+                                                                                                   
+                      FlagProgramCounter.animate('left', 75 + left_margin, {
+                      duration: 2000,
+                      onChange: canvas.renderAll.bind(canvas),
+                      onComplete: function() {
+                      animateBtn.disabled = false;
+                      FlagMAR = FlagProgramCounter;
+                      canvas.remove(group_LDAState4_controller_mar);
+
+                      var temp = new fabric.Group([ new fabric.Rect({
+                      fill: indigo,
+                      originX: 'center',
+                      originY: 'center',
+                      width: 100,
+                      height: 20
+                      }), 
+                      new fabric.Text( $('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').html().split(' ')[1]).toString(2), {
+                        fontSize: 16,
+                        fill: 'white',
+                        originX: 'center',
+                        originY: 'center'
+                      }) ], {
+                        left: 75 + left_margin,
+                        top: 341,
+                        selectable: false
+                      });
+
+                      pin_input_mar_Lm.item(1).set({
+                        fill: indigo,
+                        fontWeight: '400'
+                        })
+                      
+                        pin_input_mar_Lm.item(0).set({
+                        fill: indigo,
+                        });
+
+
+                      canvas.add(temp);
+                      canvas.renderAll();
+
+                      FlagRam = temp;
+
+                      setTimeout(function(){
+                        
+                        pin_program_counter_ep.item(1).set({
+                        fill: indigo,
+                        fontWeight: '400'
+                        })
+                      
+                        pin_program_counter_ep.item(0).set({
+                        fill: indigo,
+                        });
+
+                        pin_RAM_Er.item(1).set({
+                        fill: fiery_red,
+                        fontWeight: '800'
+                        })
+                      
+                        pin_RAM_Er.item(0).set({
+                        fill: fiery_red,
+                        });
+
+                        pin_instruction_regs_Li.item(1).set({
+                        fill: fiery_red,
+                        fontWeight: '800'
+                        })
+                      
+                        pin_instruction_regs_Li.item(0).set({
+                        fill: fiery_red,
+                        });
+
+                        setTimeout(function(){
+                           
+                          FlagRam.animate('left', 332 + left_margin, {
+                          duration: 2000,
+                          onChange: canvas.renderAll.bind(canvas),
+                          onComplete: function() {
+                                
+                              FlagRam.animate('top', '+=133', {
+                              duration: 2000,
+                              onChange: canvas.renderAll.bind(canvas),
+                              onComplete: function() {
+
+                                FlagRam.animate('left', 75 + left_margin, {
+                                duration: 2000,
+                                onChange: canvas.renderAll.bind(canvas),
+                                onComplete: function() {
+                                    FlagInstructionRegister = FlagRam;
+
+                                    var temp = new fabric.Group([ new fabric.Rect({
+                                      fill: indigo,
+                                      originX: 'center',
+                                      originY: 'center',
+                                      width: 100,
+                                      height: 20
+                                    }), 
+                                    new fabric.Text($('.bg-red-700:first').html().toString(), {
+                                      fontSize: 16,
+                                      fill: 'white',
+                                      originX: 'center',
+                                      originY: 'center'
+                                    }) ], {
+                                      left: 75 + left_margin,
+                                      top: 474,
+                                      selectable: false
+                                    });
+                                  
+                                    canvas.add(temp);
+                                    temp.animate('top', '+=133', {
+                                    duration: 2000,
+                                    onChange: canvas.renderAll.bind(canvas),
+                                    onComplete: function() {
+                                      canvas.remove(FlagControlUnit);
+                                      FlagControlUnit = temp;
+
+                                      setTimeout(function(){
+                                        var temp = new fabric.Group([ new fabric.Rect({
+                                          fill: indigo,
+                                          originX: 'center',
+                                          originY: 'center',
+                                          width: 100,
+                                          height: 20
+                                        }), 
+                                        new fabric.Text( parseInt(program_counter).toString(2) , {
+                                          fontSize: 16,
+                                          fill: 'white',
+                                          originX: 'center',
+                                          originY: 'center'
+                                        }) ], {
+                                          left: 75 + left_margin,
+                                          top: 75,
+                                          selectable: false
+                                        });
+
+                                        canvas.add(temp);
+                                        FlagProgramCounter = temp;
+
+                                        
+                                        pin_program_counter_cp.item(1).set({
+                                        fill: fiery_red,
+                                        fontWeight: '800'
+                                        })
+                                      
+                                        pin_program_counter_cp.item(0).set({
+                                        fill: fiery_red,
+                                        });
+
+                                        pin_RAM_Er.item(1).set({
+                                        fill: indigo,
+                                        fontWeight: '400'
+                                        })
+                                      
+                                        pin_RAM_Er.item(0).set({
+                                        fill: indigo,
+                                        });
+                                        
+                                        pin_instruction_regs_Li.item(1).set({
+                                        fill: indigo,
+                                        fontWeight: '400'
+                                        })
+                                      
+                                        pin_instruction_regs_Li.item(0).set({
+                                        fill: indigo,
+                                        });
+
+                                       
+                                        setTimeout(function(){
+                                            var temp = new fabric.Group([ new fabric.Rect({
+                                            fill: fiery_red,
+                                            originX: 'center',
+                                            originY: 'center',
+                                            width: 141,
+                                            height: 50
+                                          }), 
+                                          new fabric.Text( 'HALTED' , {
+                                            fontSize: 15,
+                                            weight: '800',
+                                            fill: 'white',
+                                            originX: 'center',
+                                            originY: 'top',
+                                            fontFamily: 'Calibri'
+                                          }),
+                                          new fabric.Text( 'COMPUTER' , {
+                                            fontSize: 15,
+                                            weight: '800',
+                                            fill: 'white',
+                                            originX: 'center',
+                                            originY: 'bottom',
+                                            fontFamily: 'Calibri'
+                                          })
+                                        ], {
+                                          left:  565 + left_margin,
+                                            top: 680,
+                                            selectable: false
+                                          });
+
+                                          canvas.add(temp);
+                                        }, 1000)
+                                    
+                                      }, 500)                                    
+                                    },
+                                  
+                                      easing: fabric.util.easeInOutBack
+                                    });
+                                },
+                              
+                                  easing: fabric.util.easeInOutBack
+                                });
+                                
+                              },
+                            
+                                easing: fabric.util.easeInOutBack
+                              });
+
+                          },
+                        
+                            easing: fabric.util.easeInOutBack
+                          });
+                        }, 1000)
+                      }, 500)
+                  },
+                                                                                                    
+                easing: fabric.util.easeInOutBack
+              });
+                                                                                               
+
+            },
+                                                                                                  
+              easing: fabric.util.easeInOutBack
+            });
+                                                                                                  
+
+            },
+                                                                                                    
+            easing: fabric.util.easeInOutBack
+          });         
+          
+        }
+
       
     }
+
+                                  
   });
  
 
