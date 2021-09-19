@@ -2453,7 +2453,7 @@ function activeMemory(ActiveInstruction) {
                                           width: 100,
                                           height: 20
                                         }), 
-                                        new fabric.Text( parseInt(program_counter).toString(2) , {
+                                        new fabric.Text( addZeros(parseInt(program_counter).toString(2))  , {
                                           fontSize: 16,
                                           fill: 'white',
                                           originX: 'center',
@@ -2527,7 +2527,7 @@ function activeMemory(ActiveInstruction) {
                                             width: 100,
                                             height: 20
                                           }), 
-                                          new fabric.Text( parseInt($('.bg-red-700:last').html().split(' ')[1]).toString(2), {
+                                          new fabric.Text( addZeros(parseInt($('.bg-red-700:last').html().split(' ')[1]).toString(2)), {
                                             fontSize: 16,
                                             fill: 'white',
                                             originX: 'center',
@@ -2986,7 +2986,7 @@ function activeMemory(ActiveInstruction) {
                                           width: 100,
                                           height: 20
                                         }), 
-                                        new fabric.Text( parseInt(program_counter).toString(2) , {
+                                        new fabric.Text( addZeros(parseInt(program_counter).toString(2)) , {
                                           fontSize: 16,
                                           fill: 'white',
                                           originX: 'center',
@@ -3060,7 +3060,7 @@ function activeMemory(ActiveInstruction) {
                                             width: 100,
                                             height: 20
                                           }), 
-                                          new fabric.Text( parseInt($('.bg-red-700:last').html().split(' ')[1]).toString(2), {
+                                          new fabric.Text(addZeros(parseInt($('.bg-red-700:last').html().split(' ')[1]).toString(2)) , {
                                             fontSize: 16,
                                             fill: 'white',
                                             originX: 'center',
@@ -3430,7 +3430,8 @@ function activeMemory(ActiveInstruction) {
                       width: 100,
                       height: 20
                       }), 
-                      new fabric.Text( $('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').html().split(' ')[1]).toString(2), {
+                      // new fabric.Text( $('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').html().split(' ')[1]).toString(2), {
+                        new fabric.Text( $('.bg-red-700:first').html().toString() + ' ' + '1111', {
                         fontSize: 16,
                         fill: 'white',
                         originX: 'center',
@@ -3537,7 +3538,7 @@ function activeMemory(ActiveInstruction) {
                                           width: 100,
                                           height: 20
                                         }), 
-                                        new fabric.Text( parseInt(program_counter).toString(2) , {
+                                        new fabric.Text( addZeros(parseInt(program_counter).toString(2)) , {
                                           fontSize: 16,
                                           fill: 'white',
                                           originX: 'center',
@@ -3789,7 +3790,8 @@ function activeMemory(ActiveInstruction) {
                       width: 100,
                       height: 20
                       }), 
-                      new fabric.Text( $('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').html().split(' ')[1]).toString(2), {
+                      // new fabric.Text( $('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').html().split(' ')[1]).toString(2), {
+                      new fabric.Text( '1111' + ' ' + '1111', {
                         fontSize: 16,
                         fill: 'white',
                         originX: 'center',
@@ -3896,7 +3898,7 @@ function activeMemory(ActiveInstruction) {
                                           width: 100,
                                           height: 20
                                         }), 
-                                        new fabric.Text( parseInt(program_counter).toString(2) , {
+                                        new fabric.Text( addZeros(parseInt(program_counter).toString(2)) , {
                                           fontSize: 16,
                                           fill: 'white',
                                           originX: 'center',
@@ -4015,7 +4017,16 @@ function activeMemory(ActiveInstruction) {
       
     }
 
-                                  
+    function addZeros(tmp){
+      let strtemp = tmp.split(" ")[0].length;
+      if(strtemp % 4 == 0){
+        return tmp;
+      }else {
+        tmp = '0' + tmp;
+        return addZeros(tmp);
+      }
+    }                      
+
   });
  
 
