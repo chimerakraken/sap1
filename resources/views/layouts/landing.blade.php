@@ -89,27 +89,27 @@ function activeMemory(ActiveInstruction) {
         },
         {
           id: 7,
-          instruction: '',
+          instruction: '1101',
           address: '0111'
         },
         {
           id: 8,
-          instruction: '',
+          instruction: '1101',
           address: '1000'
         },
         {
           id: 9,
-          instruction: '',
+          instruction: '1101',
           address: '1001'
         },
         {
           id: 10,
-          instruction: '',
+          instruction: '1101',
           address: '1010'
         },
         {
           id: 11,
-          instruction: '',
+          instruction: '0010',
           address: '1011'
         },
         {
@@ -119,17 +119,17 @@ function activeMemory(ActiveInstruction) {
         },
         {
           id: 13,
-          instruction: '',
+          instruction: '1001',
           address: '1101'
         },
         {
           id: 14,
-          instruction: '',
+          instruction: '0011',
           address: '1110'
         },
         {
           id: 15,
-          instruction: '',
+          instruction: '1110',
           address: '1111'
         },
       ],
@@ -2178,6 +2178,12 @@ function activeMemory(ActiveInstruction) {
                                                                                 onComplete: function() {
                                                                                 
                                                                                     FlagARegister = group_LDAState4_PROM;
+                                                                                    console.log(FlagPROM.item(1).get('text').toString())
+                                                                                    // update
+                                                                                    var tmp =  getInstruction(FlagPROM.item(1).get('text').toString());
+                                                                                    FlagARegister.item(1).set({
+                                                                                         text: tmp
+                                                                                        });
 
                                                                                     setTimeout(function(){
                                                                                       pin_RAM_Er.item(1).set({
@@ -2635,6 +2641,11 @@ function activeMemory(ActiveInstruction) {
                                                           onComplete: function() {
                                                               FlagBRegister = FlagRam;
 
+                                                              var tmp =  getInstruction(FlagBRegister.item(1).get('text').toString());
+                                                              FlagBRegister.item(1).set({
+                                                                    text: tmp
+                                                                   });
+                                                                   
                                                               var bug_t_split = (parseInt((FlagBRegister.item(1).get('text')).replace(' ', ''), 2) + parseInt((FlagARegister.item(1).get('text')).replace(' ', ''), 2)).toString(2).toString();
                                                               setTimeout(function(){
                                                                 var temp = new fabric.Group([ new fabric.Rect({
@@ -4025,7 +4036,29 @@ function activeMemory(ActiveInstruction) {
         tmp = '0' + tmp;
         return addZeros(tmp);
       }
-    }                      
+    }   
+    
+
+    function getLast4bits(tmp){
+      let strtemp = tmp.toString().split(" ")[1];
+      return strtemp;
+    } 
+
+    function getInstruction(tmp){
+      var p = activeMemory().options;
+      debugger
+      // console.log(getLast4bits('1001 0010').toString(2));
+      for (var key in p) {
+        if(p[key].address == getLast4bits(tmp).toString(2)){
+          console.log(p[key].instruction);
+          
+          return p[key].instruction.toString();
+        }
+    
+      }
+
+    }
+   
 
   });
  
