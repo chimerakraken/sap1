@@ -1915,7 +1915,7 @@
 
     function LDAState1() {
 
-      var temp = parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2);
+      var temp = parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2).padStart(4, '0');
 
       var group_LDAState1_PROM = new fabric.Group([new fabric.Rect({
           fill: indigo,
@@ -2396,7 +2396,7 @@
                         width: 100,
                         height: 20
                       }),
-                      new fabric.Text($('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2), {
+                      new fabric.Text($('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2).padStart(4, '0'), {
                         fontSize: 16,
                         fill: 'white',
                         originX: 'center',
