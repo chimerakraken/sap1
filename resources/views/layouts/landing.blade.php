@@ -162,7 +162,11 @@
     });
 
     $('select').change(function() {
-      console.log($(this).parent().parent().children(':last').find('input').val($(this).val() + ' '));
+      if($(this).val()== 'BYTE'){
+
+      }else {
+        console.log($(this).parent().parent().children(':last').find('input').val($(this).val() + ' '));
+      }
     })
 
 
