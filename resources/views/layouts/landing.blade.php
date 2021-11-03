@@ -163,7 +163,7 @@
 
     $('select').change(function() {
       if($(this).val()== 'BYTE'){
-
+        $(this).parent().parent().children(':last').find('input').val('');
       }else {
         console.log($(this).parent().parent().children(':last').find('input').val($(this).val() + ' '));
       }
@@ -2400,7 +2400,7 @@
                         width: 100,
                         height: 20
                       }),
-                      new fabric.Text($('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2).padStart(4, '0'), {
+                      new fabric.Text($('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2), {
                         fontSize: 16,
                         fill: 'white',
                         originX: 'center',
@@ -2455,6 +2455,7 @@
                       pin_instruction_regs_Li.item(0).set({
                         fill: fiery_red,
                       });
+
 
                       setTimeout(function() {
 
