@@ -43,7 +43,7 @@
                       </select>
                     </div>
                     <div class="col-span-3 overflow-hidden">
-                      <input :id="option.id" :class="[ activeInstruction  === option.id ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class=" pl-2 focus:outline-none text-base" :value="option.instruction" type="text">
+                      <input :id="option.id" onchange="updateMemory( $(this).attr('id') , $(this).val())" :class="[ activeInstruction  === option.id ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class=" pl-2 focus:outline-none text-base" :value="option.instruction" type="text">
                     </div>
                   </div>
                 </div>
@@ -62,35 +62,30 @@
 </body>
 
 <script>
-  function activeMemory(ActiveInstruction) {
-    return {
-      activeInstruction: ActiveInstruction,
-      increment() {
-        this.activeInstruction++;
-      },
-      options: [{
+
+  var options =  [{
           id: 0,
-          instruction: 'LDA 11',
+          instruction: '',
           address: '0000'
         },
         {
           id: 1,
-          instruction: 'ADD 10',
+          instruction: '',
           address: '0001'
         },
         {
           id: 2,
-          instruction: 'SUB 7',
+          instruction: '',
           address: '0010'
         },
         {
           id: 3,
-          instruction: 'OUT',
+          instruction: '',
           address: '0011'
         },
         {
           id: 4,
-          instruction: 'HLT',
+          instruction: '',
           address: '0100'
         },
         {
@@ -100,32 +95,32 @@
         },
         {
           id: 6,
-          instruction: '0010',
+          instruction: '',
           address: '0110'
         },
         {
           id: 7,
-          instruction: '0011',
+          instruction: '',
           address: '0111'
         },
         {
           id: 8,
-          instruction: '0100',
+          instruction: '',
           address: '1000'
         },
         {
           id: 9,
-          instruction: '0101',
+          instruction: '',
           address: '1001'
         },
         {
           id: 10,
-          instruction: '0110',
+          instruction: '',
           address: '1010'
         },
         {
           id: 11,
-          instruction: '0111',
+          instruction: '',
           address: '1011'
         },
         {
@@ -148,89 +143,23 @@
           instruction: '',
           address: '1111'
         },
-      ],
-      // options: [{
-      //     id: 0,
-      //     instruction: '',
-      //     address: '0000'
-      //   },
-      //   {
-      //     id: 1,
-      //     instruction: '',
-      //     address: '0001'
-      //   },
-      //   {
-      //     id: 2,
-      //     instruction: '',
-      //     address: '0010'
-      //   },
-      //   {
-      //     id: 3,
-      //     instruction: '',
-      //     address: '0011'
-      //   },
-      //   {
-      //     id: 4,
-      //     instruction: '',
-      //     address: '0100'
-      //   },
-      //   {
-      //     id: 5,
-      //     instruction: '',
-      //     address: '0101'
-      //   },
-      //   {
-      //     id: 6,
-      //     instruction: '',
-      //     address: '0110'
-      //   },
-      //   {
-      //     id: 7,
-      //     instruction: '',
-      //     address: '0111'
-      //   },
-      //   {
-      //     id: 8,
-      //     instruction: '',
-      //     address: '1000'
-      //   },
-      //   {
-      //     id: 9,
-      //     instruction: '',
-      //     address: '1001'
-      //   },
-      //   {
-      //     id: 10,
-      //     instruction: '',
-      //     address: '1010'
-      //   },
-      //   {
-      //     id: 11,
-      //     instruction: '',
-      //     address: '1011'
-      //   },
-      //   {
-      //     id: 12,
-      //     instruction: '',
-      //     address: '1100'
-      //   },
-      //   {
-      //     id: 13,
-      //     instruction: '',
-      //     address: '1101'
-      //   },
-      //   {
-      //     id: 14,
-      //     instruction: '',
-      //     address: '1110'
-      //   },
-      //   {
-      //     id: 15,
-      //     instruction: '',
-      //     address: '1111'
-      //   },
-      // ],
+      ];
 
+  function updateMemory(id, instruction) {
+    options[id].instruction = instruction;
+    // console.log(id, instruction);
+  }
+
+  function activeMemory(ActiveInstruction) {
+    return {
+      activeInstruction: ActiveInstruction,
+      increment() {
+        this.activeInstruction++;
+      },
+      updateItem(){
+       this.options = options;
+      },
+      options: options,
     };
   }
 
@@ -1899,28 +1828,6 @@
       selectable: false
     });
 
-     var temp_getinstruction = parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2).padStart(4, '0').toString();
-
-    var group_LDAState4_PROM = new fabric.Group([new fabric.Rect({
-        fill: indigo,
-        originX: 'center',
-        originY: 'center',
-        width: 100,
-        height: 20
-      }),
-      new fabric.Text('0000' + ' ' + getInstruction_4_bits(temp_getinstruction), {
-        fontSize: 16,
-        fill: 'white',
-        originX: 'center',
-        originY: 'center'
-      })
-    ], {
-      left: 75 + left_margin,
-      top: 341,
-      selectable: false
-    });
-
-
     var group_LDAState2_program_counter_mar = new fabric.Group([new fabric.Rect({
         fill: indigo,
         originX: 'center',
@@ -2000,6 +1907,28 @@
     var FlagBinaryDisplay;
 
     function LDAState1() {
+
+  
+    var temp_getinstruction = parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2).padStart(4, '0').toString();
+
+    var group_LDAState4_PROM = new fabric.Group([new fabric.Rect({
+        fill: indigo,
+        originX: 'center',
+        originY: 'center',
+        width: 100,
+        height: 20
+      }),
+      new fabric.Text('0000' + ' ' + getInstruction_4_bits(temp_getinstruction), {
+        fontSize: 16,
+        fill: 'white',
+        originX: 'center',
+        originY: 'center'
+      })
+    ], {
+      left: 75 + left_margin,
+      top: 341,
+      selectable: false
+    });
 
       var temp = parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2).padStart(4, '0');
 
@@ -2230,7 +2159,7 @@
                                                   onComplete: function() {
 
                                                     FlagMAR = group_LDAState4_controller_mar;
-
+                                                    debugger
                                                     pin_program_counter_cp.item(1).set({
                                                       fill: indigo,
                                                       fontWeight: '400'
