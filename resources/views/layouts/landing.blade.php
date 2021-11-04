@@ -38,12 +38,12 @@
                         <option class=" text-sm text-indigo-900" value="ADD">ADD</option>
                         <option class=" text-sm text-indigo-900" value="SUB">SUB</option>
                         <option class=" text-sm text-indigo-900" value="HLT">HLT</option>
-                        <option class=" text-sm text-indigo-900" value="BYTE">BYTE</option>
+                        <option class=" text-sm text-indigo-900" value="BYTE">BITS</option>
                         <option class=" text-sm text-indigo-900" value="OUT">OUT</option>
                       </select>
                     </div>
                     <div class="col-span-3 overflow-hidden">
-                      <input :id="option.id" :class="[ activeInstruction  === option.id ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class=" pl-2 focus:outline-none text-base" type="text">
+                      <input :id="option.id" :class="[ activeInstruction  === option.id ? 'text-red-50 bg-red-700' : 'text-indigo-900' ]" class=" pl-2 focus:outline-none text-base" :value="option.instruction" type="text">
                     </div>
                   </div>
                 </div>
@@ -70,27 +70,27 @@
       },
       options: [{
           id: 0,
-          instruction: '',
+          instruction: 'LDA 11',
           address: '0000'
         },
         {
           id: 1,
-          instruction: '',
+          instruction: 'ADD 10',
           address: '0001'
         },
         {
           id: 2,
-          instruction: '',
+          instruction: 'SUB 7',
           address: '0010'
         },
         {
           id: 3,
-          instruction: '',
+          instruction: 'OUT',
           address: '0011'
         },
         {
           id: 4,
-          instruction: '',
+          instruction: 'HLT',
           address: '0100'
         },
         {
@@ -100,32 +100,32 @@
         },
         {
           id: 6,
-          instruction: '',
+          instruction: '0010',
           address: '0110'
         },
         {
           id: 7,
-          instruction: '',
+          instruction: '0011',
           address: '0111'
         },
         {
           id: 8,
-          instruction: '',
+          instruction: '0100',
           address: '1000'
         },
         {
           id: 9,
-          instruction: '',
+          instruction: '0101',
           address: '1001'
         },
         {
           id: 10,
-          instruction: '',
+          instruction: '0110',
           address: '1010'
         },
         {
           id: 11,
-          instruction: '',
+          instruction: '0111',
           address: '1011'
         },
         {
@@ -149,6 +149,87 @@
           address: '1111'
         },
       ],
+      // options: [{
+      //     id: 0,
+      //     instruction: '',
+      //     address: '0000'
+      //   },
+      //   {
+      //     id: 1,
+      //     instruction: '',
+      //     address: '0001'
+      //   },
+      //   {
+      //     id: 2,
+      //     instruction: '',
+      //     address: '0010'
+      //   },
+      //   {
+      //     id: 3,
+      //     instruction: '',
+      //     address: '0011'
+      //   },
+      //   {
+      //     id: 4,
+      //     instruction: '',
+      //     address: '0100'
+      //   },
+      //   {
+      //     id: 5,
+      //     instruction: '',
+      //     address: '0101'
+      //   },
+      //   {
+      //     id: 6,
+      //     instruction: '',
+      //     address: '0110'
+      //   },
+      //   {
+      //     id: 7,
+      //     instruction: '',
+      //     address: '0111'
+      //   },
+      //   {
+      //     id: 8,
+      //     instruction: '',
+      //     address: '1000'
+      //   },
+      //   {
+      //     id: 9,
+      //     instruction: '',
+      //     address: '1001'
+      //   },
+      //   {
+      //     id: 10,
+      //     instruction: '',
+      //     address: '1010'
+      //   },
+      //   {
+      //     id: 11,
+      //     instruction: '',
+      //     address: '1011'
+      //   },
+      //   {
+      //     id: 12,
+      //     instruction: '',
+      //     address: '1100'
+      //   },
+      //   {
+      //     id: 13,
+      //     instruction: '',
+      //     address: '1101'
+      //   },
+      //   {
+      //     id: 14,
+      //     instruction: '',
+      //     address: '1110'
+      //   },
+      //   {
+      //     id: 15,
+      //     instruction: '',
+      //     address: '1111'
+      //   },
+      // ],
 
     };
   }
@@ -1818,6 +1899,7 @@
       selectable: false
     });
 
+     var temp_getinstruction = parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2).padStart(4, '0').toString();
 
     var group_LDAState4_PROM = new fabric.Group([new fabric.Rect({
         fill: indigo,
@@ -1826,7 +1908,7 @@
         width: 100,
         height: 20
       }),
-      new fabric.Text('0000' + ' ' + '0111', {
+      new fabric.Text('0000' + ' ' + getInstruction_4_bits(temp_getinstruction), {
         fontSize: 16,
         fill: 'white',
         originX: 'center',
@@ -2228,9 +2310,9 @@
                                                                       // update
                                                                       var tmp = getInstruction(FlagPROM.item(1).get('text').toString());
                                                                       
-                                                                      FlagARegister.item(1).set({
-                                                                        text: temp
-                                                                      });
+                                                                      // FlagARegister.item(1).set({
+                                                                      //   text: temp
+                                                                      // });
 
                                                                       setTimeout(function() {
                                                                         pin_RAM_Er.item(1).set({
@@ -2400,7 +2482,7 @@
                         width: 100,
                         height: 20
                       }),
-                      new fabric.Text($('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2), {
+                      new fabric.Text($('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2).padStart(4, '0'), {
                         fontSize: 16,
                         fill: 'white',
                         originX: 'center',
@@ -2626,6 +2708,9 @@
                                                             fill: indigo,
                                                           });
 
+                                                          debugger
+                                                          var temp_getinstruction = parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2).padStart(4, '0').toString();
+
                                                           setTimeout(function() {
                                                             var temp = new fabric.Group([new fabric.Rect({
                                                                 fill: indigo,
@@ -2634,7 +2719,9 @@
                                                                 width: 100,
                                                                 height: 20
                                                               }),
-                                                              new fabric.Text($('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2), {
+                                                              
+                                                              // new fabric.Text($('.bg-red-700:first').html().toString() + ' ' +  getInstruction_4_bits(temp_getinstruction), {
+                                                              new fabric.Text('0000' + ' ' +  getInstruction_4_bits(temp_getinstruction), {
                                                                 fontSize: 16,
                                                                 fill: 'white',
                                                                 originX: 'center',
@@ -2696,12 +2783,13 @@
                                                                   FlagBRegister = FlagRam;
 
                                                                   var tmp = getInstruction(FlagBRegister.item(1).get('text').toString());
-                                                                  debugger
-                                                                  FlagBRegister.item(1).set({
-                                                                    text: tmp
-                                                                  });
+                                                                  
+                                                                  // FlagBRegister.item(1).set({
+                                                                  //   text: tmp
+                                                                  // });
 
-                                                                  var bug_t_split = (parseInt((FlagBRegister.item(1).get('text')).replace(' ', ''), 2) + parseInt((FlagARegister.item(1).get('text')).replace(' ', ''), 2)).toString(2).toString();
+                                                                  var bug_t_split = ((parseInt((FlagBRegister.item(1).get('text')).replace(' ', ''), 2) + parseInt((FlagARegister.item(1).get('text')).replace(' ', ''), 2)).toString(2).toString()).padStart(8, '0').match(/.{1,4}/g);
+                                                                 debugger
                                                                   setTimeout(function() {
                                                                     var temp = new fabric.Group([new fabric.Rect({
                                                                         fill: indigo,
@@ -2710,7 +2798,7 @@
                                                                         width: 100,
                                                                         height: 20
                                                                       }),
-                                                                      new fabric.Text(bug_t_split, {
+                                                                      new fabric.Text(bug_t_split.join(' '), {
                                                                         fontSize: 16,
                                                                         fill: 'white',
                                                                         originX: 'center',
@@ -2899,7 +2987,6 @@
         });
 
       }
-
       if ($('.bg-red-700:last').val().split(' ')[0].toString(2) == 'SUB') {
 
         pin_input_mar_Lm.item(1).set({
@@ -2946,7 +3033,7 @@
                         width: 100,
                         height: 20
                       }),
-                      new fabric.Text($('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2), {
+                      new fabric.Text($('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2).padStart(4, '0'), {
                         fontSize: 16,
                         fill: 'white',
                         originX: 'center',
@@ -3001,6 +3088,7 @@
                       pin_instruction_regs_Li.item(0).set({
                         fill: fiery_red,
                       });
+
 
                       setTimeout(function() {
 
@@ -3171,6 +3259,9 @@
                                                             fill: indigo,
                                                           });
 
+                                                          debugger
+                                                          var temp_getinstruction = parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2).padStart(4, '0').toString();
+
                                                           setTimeout(function() {
                                                             var temp = new fabric.Group([new fabric.Rect({
                                                                 fill: indigo,
@@ -3179,7 +3270,9 @@
                                                                 width: 100,
                                                                 height: 20
                                                               }),
-                                                              new fabric.Text($('.bg-red-700:first').html().toString() + ' ' + parseInt($('.bg-red-700:last').val().split(' ')[1]).toString(2), {
+                                                              
+                                                              // new fabric.Text($('.bg-red-700:first').html().toString() + ' ' +  getInstruction_4_bits(temp_getinstruction), {
+                                                              new fabric.Text('0000' + ' ' +  getInstruction_4_bits(temp_getinstruction), {
                                                                 fontSize: 16,
                                                                 fill: 'white',
                                                                 originX: 'center',
@@ -3240,7 +3333,18 @@
                                                                 onComplete: function() {
                                                                   FlagBRegister = FlagRam;
 
-                                                                  var bug_t_split = (parseInt((FlagBRegister.item(1).get('text')).replace(' ', ''), 2) - parseInt((FlagARegister.item(1).get('text')).replace(' ', ''), 2)).toString(2).toString();
+                                                                  var tmp = getInstruction(FlagBRegister.item(1).get('text').toString());
+                                                                  
+                                                                  // FlagBRegister.item(1).set({
+                                                                  //   text: tmp
+                                                                  // });
+
+                                                                  var temp_flagBReg = parseInt((FlagBRegister.item(1).get('text')).replace(' ', ''), 2);
+                                                                  var temp_flagAReg = parseInt((FlagARegister.item(1).get('text')).replace(' ', ''), 2);
+                                                                  var temp_flagValue = temp_flagAReg - temp_flagBReg; 
+
+                                                                  var bug_t_split = (temp_flagValue.toString(2).toString()).padStart(8, '0').match(/.{1,4}/g);
+                                                                 debugger
                                                                   setTimeout(function() {
                                                                     var temp = new fabric.Group([new fabric.Rect({
                                                                         fill: indigo,
@@ -3249,7 +3353,7 @@
                                                                         width: 100,
                                                                         height: 20
                                                                       }),
-                                                                      new fabric.Text(bug_t_split, {
+                                                                      new fabric.Text(bug_t_split.join(' '), {
                                                                         fontSize: 16,
                                                                         fill: 'white',
                                                                         originX: 'center',
@@ -3270,15 +3374,6 @@
                                                                     })
 
                                                                     pin_adder_substractor_eu.item(0).set({
-                                                                      fill: fiery_red,
-                                                                    });
-
-                                                                    pin_adder_substractor_su.item(1).set({
-                                                                      fill: fiery_red,
-                                                                      fontWeight: '800'
-                                                                    })
-
-                                                                    pin_adder_substractor_su.item(0).set({
                                                                       fill: fiery_red,
                                                                     });
 
@@ -3355,15 +3450,6 @@
                                                                                     })
 
                                                                                     pin_adder_substractor_eu.item(0).set({
-                                                                                      fill: indigo,
-                                                                                    });
-
-                                                                                    pin_adder_substractor_su.item(1).set({
-                                                                                      fill: indigo,
-                                                                                      fontWeight: '400'
-                                                                                    })
-
-                                                                                    pin_adder_substractor_su.item(0).set({
                                                                                       fill: indigo,
                                                                                     });
 
@@ -3456,6 +3542,8 @@
         });
 
       }
+
+  
 
       if ($('.bg-red-700:last').val().split(' ')[0].toString(2) == 'OUT') {
 
@@ -3695,6 +3783,7 @@
                                                       onComplete: function() {
 
                                                         FlagOuputRegister = FlagARegister;
+                                                        var temp_bi = parseInt(FlagOuputRegister.item(1).get('text').toString().replace(' ',''), 2);
                                                         setTimeout(function() {
 
                                                           var temp = new fabric.Group([new fabric.Rect({
@@ -3704,7 +3793,7 @@
                                                               width: 100,
                                                               height: 20
                                                             }),
-                                                            new fabric.Text(parseInt((FlagOuputRegister.item(1).get('text')), 2).toString(), {
+                                                            new fabric.Text(temp_bi.toString(), {
                                                               fontSize: 16,
                                                               fill: 'white',
                                                               originX: 'center',
@@ -4127,6 +4216,32 @@
         // console.log($(this).html().trim());
 
         if ($(this).html().trim() == getLast4bits(tmp).toString(2)) {
+          // console.log(p[key].instruction);
+          temp = $(this).siblings().find('input').val().toString();
+        }
+
+        // console.log($(this).siblings().find('input').val())
+      })
+
+      return temp;
+    }
+
+
+
+    function getInstruction_4_bits(tmp) {
+      var p = activeMemory().options;
+
+      // for (var key in p) {
+      //   if (p[key].address == getLast4bits(tmp).toString(2)) {
+      //     console.log(p[key].instruction);
+      //     return p[key].instruction.toString();
+      //   }
+      // }
+      var temp = null;
+      $('.address').each(function() {
+        // console.log($(this).html().trim());
+
+        if ($(this).html().trim() == tmp.toString(2)) {
           // console.log(p[key].instruction);
           temp = $(this).siblings().find('input').val().toString();
         }
