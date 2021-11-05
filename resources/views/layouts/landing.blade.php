@@ -173,9 +173,9 @@
 
     $('select').change(function() {
       if($(this).val()== 'BYTE'){
-        $(this).parent().parent().children(':last').find('input').val('');
+        $(this).parent().parent().children(':last').find('input').val('').change();
       }else {
-        console.log($(this).parent().parent().children(':last').find('input').val($(this).val() + ' '));
+        console.log($(this).parent().parent().children(':last').find('input').val($(this).val() + ' ').change());
       }
     })
 
@@ -2363,6 +2363,7 @@
     var program_counter = 1;
 
     function NextProcess() {
+      debugger
       // ADD
       program_counter = program_counter + 1;
       if ($('.bg-red-700:last').val().split(' ')[0].toString(2) == 'ADD') {
